@@ -97,8 +97,8 @@ test.describe('모바일', () => {
     await expect(page.getByRole('navigation', { name: '주 메뉴' }).getByRole('link')).toHaveCount(4);
     const cards = page.locator('main a[href*="/fitting/"]');
     await expect(cards).toHaveCount(8);
-    const [a, b] = [await cards.nth(0).boundingBox(), await cards.nth(1).boundingBox()];
-    expect(a!.y).toBe(b!.y);
+    // 2열: 첫 두 카드가 같은 줄(글꼴을 받는 동안 줄이 움직일 수 있어 자리 잡을 때까지 기다린다)
+    await expect.poll(async () => (await cards.nth(0).boundingBox())!.y === (await cards.nth(1).boundingBox())!.y).toBe(true);
     await expect(cards.first()).toContainText('카모 카고 스트릿 코디');
     await page.screenshot({ path: 'e2e/screens/m1a-explore.png' });
 

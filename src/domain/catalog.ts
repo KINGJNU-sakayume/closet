@@ -35,6 +35,9 @@ export function resolveWorn(worn: Worn, garments: Garment[], products: Map<strin
       return garment ? [{ slot, kind: 'garment', garment }] : [];
     }
     if (ref?.productId) {
+      // '샀어요'로 내 옷이 된 상품은 내 옷으로 보여 준다
+      const bought = garments.find((g) => g.fromProductId === ref.productId);
+      if (bought) return [{ slot, kind: 'garment', garment: bought }];
       const product = products.get(ref.productId);
       return product ? [{ slot, kind: 'product', product }] : [];
     }

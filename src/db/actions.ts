@@ -1,5 +1,6 @@
 import type { Worn } from '../domain/catalog';
-import type { MatchOverride, Outfit } from '../domain/types';
+import { garmentFromProduct } from '../domain/shopping';
+import type { MatchOverride, Outfit, Product } from '../domain/types';
 import { db } from './db';
 import { WORN } from './seed';
 
@@ -20,3 +21,23 @@ export async function saveOutfit(title: string, slots: Worn): Promise<Outfit> {
   await db.outfits.add(outfit);
   return outfit;
 }
+
+/** '샀어요': 상품 속성으로 내 옷을 만들고 쇼핑 리스트에서 bought로 바꾼다. 되돌리기용으로 만든 옷 id를 돌려준다. */
+export async function markBought(product: Product): Promise<string> {
+  const garment = garmentFromProduct(product);
+  await db.transaction('rw', db.garments, db.shopping, async () => {
+    await db.garments.add(garment);
+    await db.shopping.update(product.id, { status: 'bought' });
+  });
+  return garment.id;
+}
+
+export async function undoBought(productId: string, garmentId: string) {
+  await db.transaction('rw', db.garments, db.shopping, async () => {
+    await db.garments.delete(garmentId);
+    await db.shopping.update(productId, { status: 'wanted' });
+  });
+}
+
+/** 빼기: 목록에서만 사라진다 */
+export const removeFromShopping = (productId: string) => db.shopping.update(productId, { status: 'removed' });
