@@ -1,0 +1,95 @@
+.box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-32);
+  align-items: center;
+  padding: var(--sp-32);
+  border: 1px solid var(--line);
+  border-radius: var(--r-tile);
+}
+
+.thumb {
+  flex: none;
+  width: 200px;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--r-tile);
+  background: var(--tile);
+  overflow: hidden;
+}
+
+.info {
+  flex: 1 1 320px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-12);
+}
+
+.done {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--fs-13);
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.alias {
+  font-size: var(--fs-22);
+  font-weight: 700;
+}
+
+.meta {
+  font-size: var(--fs-13);
+  color: var(--muted);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-8) var(--sp-24);
+  padding-top: var(--sp-4);
+}
+
+.again {
+  font-size: var(--fs-14);
+}
+
+/* 모바일: 가운데 정렬 + 아래 고정 버튼 */
+.mobile {
+  flex: 1;
+  padding: var(--sp-24) var(--sp-24) 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.mobile .info {
+  flex: none;
+  align-items: center;
+  gap: 10px;
+  margin-top: var(--sp-12);
+}
+
+.mobile .done {
+  font-size: var(--fs-14);
+}
+
+.fixed {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: var(--sp-12) var(--gutter) calc(var(--sp-12) + env(safe-area-inset-bottom));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-4);
+  background: var(--bg);
+}
+
+.fixed .again {
+  font-size: var(--fs-15);
+}

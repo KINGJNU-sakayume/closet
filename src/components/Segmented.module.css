@@ -15,6 +15,10 @@
   font-weight: 500;
 }
 
+.sm .option {
+  font-size: var(--fs-13);
+}
+
 .md .option {
   font-size: var(--fs-14);
 }
@@ -27,4 +31,26 @@
   color: var(--text);
   font-weight: 700;
   box-shadow: inset 0 calc(-1 * var(--underline)) 0 var(--text);
+}
+
+.option {
+  gap: var(--sp-8);
+  white-space: nowrap;
+}
+
+.swatch {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1px solid var(--line-input);
+}
+
+@media (max-width: 767.98px) {
+  .scroll {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin: 0 calc(-1 * var(--gutter));
+    padding: 0 var(--gutter);
+    scrollbar-width: none;
+  }
 }

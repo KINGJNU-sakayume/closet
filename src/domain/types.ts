@@ -30,6 +30,8 @@ export interface Garment {
   id: string;
   alias: string;
   sourceTitle?: string | null;
+  /** '상품 링크로 등록'에서 남긴 상품 주소 */
+  sourceUrl?: string;
   /** 배경을 지운 투명 PNG. 예시 데이터나 '샀어요'로 온 옷은 비어 있을 수 있다. */
   cutout?: Blob;
   original?: Blob;

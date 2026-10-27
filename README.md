@@ -18,6 +18,12 @@ npm run build
 - 개발용: 주소 뒤에 `?reset=1`이면 예시 데이터를 다시 넣고, `?empty=1`이면 비웁니다.
 - 판정 규칙: `src/domain/matching.ts`, 점수·기준값: `src/domain/matching.config.ts`, 테스트: `src/domain/matching.test.ts`.
 
+## 옷 등록과 배경 제거
+
+- 배경 제거는 브라우저 안에서 [@imgly/background-removal](https://github.com/imgly/background-removal-js)로 합니다. 처음 한 번 모델 파일(약 44MB)과 실행 파일(약 12MB)을 IMG.LY 서버(staticimgly.com)에서 내려받고, 이후는 브라우저 캐시를 씁니다.
+- **라이선스:** 이 라이브러리는 **AGPL-3.0**입니다. 이 앱을 배포하면 AGPL 조건(소스 공개 등)을 따라야 합니다.
+- 상품 링크 등록은 주소만 구매처로 저장합니다(쇼핑몰 페이지를 읽어 오지 않음).
+
 ## 배포 (GitHub Pages)
 
 `main`에 머지되면 `.github/workflows/deploy.yml`이 테스트 → 빌드 → 배포합니다.

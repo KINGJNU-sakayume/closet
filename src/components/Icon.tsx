@@ -13,6 +13,11 @@ const paths = {
   closet: <><rect x="4" y="3" width="16" height="18" rx="1" /><path d="M12 3v18M9.5 11v2M14.5 11v2" /></>,
   bag: <><path d="M5 8h14l-1 12H6z" /><path d="M9 8V6a3 3 0 0 1 6 0v2" /></>,
   bookmark: <path d="M7 4h10v16l-5-4-5 4z" />,
+  arrowRight: <path d="M5 12h14M13 6l6 6-6 6" />,
+  upload: <><path d="M12 16V5M7 9l5-5 5 5" /><path d="M4 16v3a1 1 0 001 1h14a1 1 0 001-1v-3" /></>,
+  camera: <><path d="M4 8h3l2-3h6l2 3h3v11H4z" /><circle cx="12" cy="13" r="3.5" /></>,
+  image: <><rect x="4" y="4" width="16" height="16" rx="1" /><circle cx="9" cy="9" r="1.5" /><path d="M20 15l-5-5-9 9" /></>,
+  link: <><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1" /><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1" /></>,
 };
 
 export type IconName = keyof typeof paths;

@@ -31,14 +31,16 @@ export function MobileLandingBar() {
 }
 
 // 전체 화면 모달 상단 바: 취소 · 제목 · N / 3 + 2px 진행 막대
-export function ModalTopBar({ title, step, total, cancelTo }: { title: string; step: number; total: number; cancelTo: string }) {
+export function ModalTopBar({ title, titleId, step, total, onCancel }: { title: string; titleId?: string; step: number; total: number; onCancel: () => void }) {
   return (
     <>
       <header className={[styles.bar, styles.modal].join(' ')}>
-        <Link to={cancelTo} className={styles.cancel}>
+        <button type="button" className={styles.cancel} onClick={onCancel}>
           취소
-        </Link>
-        <h1 className={styles.modalTitle}>{title}</h1>
+        </button>
+        <h1 id={titleId} className={styles.modalTitle}>
+          {title}
+        </h1>
         <span className={styles.step} aria-current="step">
           {step} / {total}
         </span>

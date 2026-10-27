@@ -5,7 +5,7 @@ import { DevComponents } from './pages/DevComponents';
 import { Explore } from './pages/Explore';
 import { Fitting } from './pages/Fitting';
 import { Landing } from './pages/Landing';
-import { Register } from './pages/Register';
+import { Register } from './pages/register/Register';
 import { Shopping } from './pages/Shopping';
 
 const h = (handle: RouteHandle) => handle;
