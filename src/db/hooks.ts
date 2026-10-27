@@ -1,9 +1,11 @@
 import { useLiveQuery } from 'dexie-react-hooks';
 import { useEffect, useMemo, useState } from 'react';
+import type { Worn } from '../domain/catalog';
 import { judgeLook, type LookResult } from '../domain/matching';
 import { loadLooks } from '../domain/looks';
 import type { Look } from '../domain/types';
 import { db } from './db';
+import { WORN } from './seed';
 
 export const useGarments = () => useLiveQuery(() => db.garments.orderBy('createdAt').toArray());
 export const useOutfits = () => useLiveQuery(() => db.outfits.orderBy('createdAt').toArray());
@@ -39,3 +41,10 @@ export function useLookResults(): LookResult[] | undefined {
     return looks.map((l) => judgeLook(l, garments, overrides, shopping));
   }, [looks, garments, overrides, shopping]);
 }
+
+/** 피팅룸 아바타가 지금 입고 있는 옷(새로고침해도 유지) */
+export const useWorn = () =>
+  useLiveQuery(async () => {
+    const row = await db.meta.get(WORN);
+    return (row ? JSON.parse(row.value) : {}) as Worn;
+  });

@@ -11,6 +11,11 @@
   --muted: #5F5E5A;
   --accent: #2E5E4E;
   --on-dark: #FFFFFF;
+  /* 마네킹(시안 SVG 그대로) */
+  --mannequin: #E9E7E1;
+  --mannequin-line: #C3C0B7;
+  --mannequin-shadow: #E2E0DA;
+  --stage-veil: rgba(247, 246, 243, 0.92);
   --scrim: rgba(26, 26, 24, 0.32);
 
   --font: 'Noto Sans KR', system-ui, sans-serif;
@@ -51,6 +56,11 @@
   --input-h-m: 48px;
   --progress-h: 4px;
   --underline: 2px;
+
+  --sheet-mid: 256px;
+  --sheet-tall: 560px;
+  /* 그림자는 쓰지 않는다. 예외: 모바일 바텀 시트의 아주 연한 위쪽 그림자 하나 */
+  --sheet-shadow: 0 -4px 16px rgba(26, 26, 24, 0.06);
 
   --w-landing: 1240px;
   --w-wide: 1280px;

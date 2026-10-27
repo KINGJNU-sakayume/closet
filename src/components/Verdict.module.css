@@ -1,0 +1,28 @@
+.verdict {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-4);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.md {
+  font-size: var(--fs-13);
+}
+
+.sm {
+  font-size: var(--fs-12);
+}
+
+.own {
+  color: var(--accent);
+}
+
+.alt {
+  color: var(--text-2);
+}
+
+.none {
+  color: var(--text);
+}

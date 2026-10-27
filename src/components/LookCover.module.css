@@ -1,0 +1,46 @@
+.photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.shapes {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: var(--tile);
+}
+
+.shapes svg {
+  position: absolute;
+}
+
+.outer {
+  left: 7%;
+  top: 7%;
+  width: 54%;
+  aspect-ratio: 1 / 1;
+}
+
+.top {
+  right: 6%;
+  top: 12%;
+  width: 40%;
+  aspect-ratio: 1 / 1;
+}
+
+.bottom {
+  left: 30%;
+  top: 46%;
+  width: 40%;
+  aspect-ratio: 1 / 1.15;
+}
+
+.shoes {
+  right: 6%;
+  bottom: 4%;
+  width: 32%;
+  aspect-ratio: 1 / 1;
+}

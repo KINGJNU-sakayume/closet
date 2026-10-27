@@ -254,5 +254,19 @@
       "status": "wanted",
       "addedAt": "2026-10-22"
     }
-  ]
+  ],
+  "worn": {
+    "outer": {
+      "garmentId": "g_jacket"
+    },
+    "top": {
+      "garmentId": "g_tee"
+    },
+    "bottom": {
+      "garmentId": "g_denim"
+    },
+    "shoes": {
+      "garmentId": "g_sneak"
+    }
+  }
 }
