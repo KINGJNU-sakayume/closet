@@ -1,0 +1,33 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.cover {
+  aspect-ratio: 4 / 5;
+  border-radius: var(--r-tile);
+  overflow: hidden;
+  background: var(--tile);
+}
+
+.title {
+  font-size: var(--fs-15);
+  font-weight: 700;
+}
+
+.source {
+  margin-top: 2px;
+  font-size: var(--fs-12);
+  color: var(--muted);
+}
+
+.compact {
+  gap: var(--sp-8);
+}
+
+.compact .title {
+  font-size: var(--fs-14);
+}

@@ -1,0 +1,66 @@
+.scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: var(--scrim);
+  display: flex;
+  align-items: flex-end;
+}
+
+.sheet {
+  width: 100%;
+  padding: 10px var(--gutter) calc(var(--sp-24) + env(safe-area-inset-bottom));
+  border-radius: var(--r-sheet) var(--r-sheet) 0 0;
+  background: var(--bg);
+  box-shadow: var(--sheet-shadow);
+  display: flex;
+  flex-direction: column;
+}
+
+.grabber {
+  align-self: center;
+  width: 36px;
+  height: 5px;
+  border-radius: 3px;
+  background: var(--mannequin-line);
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 52px;
+}
+
+.title {
+  font-size: var(--fs-18);
+  font-weight: 700;
+}
+
+.done {
+  min-height: var(--hit);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-size: var(--fs-15);
+  font-weight: 700;
+}
+
+.option {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 52px;
+  padding: 0;
+  border: 0;
+  border-top: 1px solid var(--line);
+  background: transparent;
+  color: var(--text);
+  font-size: var(--fs-15);
+  text-align: left;
+}
+
+.on {
+  font-weight: 700;
+}

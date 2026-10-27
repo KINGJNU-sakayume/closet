@@ -2,7 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import { AppLayout, type RouteHandle } from './components/AppLayout';
 import { Closet } from './pages/Closet';
 import { DevComponents } from './pages/DevComponents';
-import { Explore } from './pages/Explore';
+import { Explore } from './pages/explore/Explore';
 import { Fitting } from './pages/fitting/Fitting';
 import { Landing } from './pages/Landing';
 import { Register } from './pages/register/Register';
