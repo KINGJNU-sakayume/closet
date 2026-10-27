@@ -1,12 +1,12 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { AppLayout, type RouteHandle } from './components/AppLayout';
-import { Closet } from './pages/Closet';
+import { Closet } from './pages/closet/Closet';
 import { DevComponents } from './pages/DevComponents';
 import { Explore } from './pages/explore/Explore';
 import { Fitting } from './pages/fitting/Fitting';
 import { Landing } from './pages/Landing';
 import { Register } from './pages/register/Register';
-import { Shopping } from './pages/Shopping';
+import { Shopping } from './pages/shopping/Shopping';
 
 const h = (handle: RouteHandle) => handle;
 

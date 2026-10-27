@@ -10,6 +10,8 @@ import { WORN } from './seed';
 export const useGarments = () => useLiveQuery(() => db.garments.orderBy('createdAt').toArray());
 export const useOutfits = () => useLiveQuery(() => db.outfits.orderBy('createdAt').toArray());
 export const useShopping = () => useLiveQuery(() => db.shopping.where('status').equals('wanted').sortBy('addedAt'));
+/** bought·removed까지 모두 */
+export const useShoppingAll = () => useLiveQuery(() => db.shopping.toArray());
 export const useOverrides = () => useLiveQuery(() => db.overrides.toArray());
 
 /** 헤더·탭 바의 쇼핑 리스트 숫자 = 지금 담겨 있는 개수 */

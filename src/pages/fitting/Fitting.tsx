@@ -57,6 +57,16 @@ export function Fitting() {
     setSearch(search, { replace: true });
   }, [outfitId, outfits, search, setSearch]);
 
+  // 내 옷장에서 옷 누르기: /fitting?wear=g_…
+  const wearId = search.get('wear');
+  const { wear } = fit;
+  useEffect(() => {
+    if (!wearId || !fit.ready) return;
+    wear({ garmentId: wearId });
+    search.delete('wear');
+    setSearch(search, { replace: true });
+  }, [wearId, fit.ready, wear, search, setSearch]);
+
   // 없는 룩 주소면 룩 없이 연다
   useEffect(() => {
     if (params.lookId && fit.looks && !fit.looks.some((l) => l.id === params.lookId)) navigate('/fitting', { replace: true });

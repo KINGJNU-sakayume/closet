@@ -1,0 +1,270 @@
+.page {
+  width: 100%;
+  max-width: var(--w-wide);
+  margin: 0 auto;
+  padding: var(--sp-32) var(--gutter);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-24);
+}
+
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--sp-16);
+}
+
+.title {
+  font-size: var(--fs-26);
+  font-weight: 700;
+}
+
+.sub,
+.muted {
+  font-size: var(--fs-13);
+  color: var(--muted);
+}
+
+.sub {
+  margin-top: var(--sp-4);
+  font-size: var(--fs-14);
+}
+
+.tabs {
+  display: inline-flex;
+  gap: var(--sp-24);
+}
+
+.tab,
+.cat {
+  height: var(--hit);
+  padding: 0 2px;
+  border: 0;
+  background: transparent;
+  color: var(--text-2);
+  font-size: var(--fs-15);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.cat {
+  color: var(--muted);
+  font-size: var(--fs-14);
+}
+
+.tabOn,
+.catOn {
+  color: var(--text);
+  font-weight: 700;
+  box-shadow: inset 0 calc(-1 * var(--underline)) 0 var(--text);
+}
+
+.tabCount {
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-24);
+}
+
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-12);
+}
+
+.cats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 var(--sp-24);
+}
+
+.items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: var(--sp-24) var(--sp-16);
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-8);
+  text-decoration: none;
+  color: var(--text);
+}
+
+.itemThumb {
+  aspect-ratio: 1 / 1;
+  border-radius: var(--r-tile);
+  background: var(--tile);
+  overflow: hidden;
+}
+
+.itemName {
+  display: block;
+  font-size: var(--fs-14);
+  font-weight: 700;
+}
+
+.usage {
+  display: block;
+  margin-top: 2px;
+  font-size: var(--fs-12);
+  color: var(--muted);
+}
+
+.intro {
+  font-size: var(--fs-14);
+  color: var(--text-2);
+}
+
+.outfits {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--sp-24);
+}
+
+.newOutfit {
+  min-height: 360px;
+  border: 1px dashed var(--line-input);
+  border-radius: var(--r-tile);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-12);
+  text-decoration: none;
+  color: var(--text);
+}
+
+.newTitle {
+  font-size: var(--fs-15);
+  font-weight: 700;
+}
+
+.outfit {
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-tile);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-12);
+}
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.tile {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--r-tile);
+  background: var(--tile);
+  overflow: hidden;
+}
+
+.shopLabel {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: var(--sp-4) 7px;
+  border-radius: var(--r-tile) 0 var(--r-button) 0;
+  background: var(--bg);
+  color: var(--accent);
+  font-size: var(--fs-11);
+  font-weight: 700;
+}
+
+.outfitTitle {
+  font-size: var(--fs-15);
+  font-weight: 700;
+}
+
+.metaOwn,
+.metaShop {
+  margin-top: 2px;
+  font-size: var(--fs-12);
+  font-weight: 700;
+}
+
+.metaOwn {
+  color: var(--accent);
+}
+
+.metaShop {
+  color: var(--text-2);
+}
+
+.outfitActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 var(--sp-20);
+}
+
+.action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: var(--hit);
+  color: var(--text);
+  font-size: var(--fs-14);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.accent {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.empty {
+  padding: 48px var(--sp-24);
+  border: 1px dashed var(--line-input);
+  border-radius: var(--r-tile);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-12);
+}
+
+.emptyTitle {
+  font-size: var(--fs-15);
+  font-weight: 700;
+}
+
+@media (max-width: 767.98px) {
+  .page {
+    padding-top: var(--sp-8);
+    gap: var(--sp-16);
+  }
+
+  .title {
+    display: none;
+  }
+
+  .items {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cats {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin: 0 calc(-1 * var(--gutter));
+    padding: 0 var(--gutter);
+    scrollbar-width: none;
+  }
+
+  .newOutfit {
+    min-height: 160px;
+  }
+}
