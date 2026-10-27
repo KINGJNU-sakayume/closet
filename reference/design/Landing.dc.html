@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>옷장 코디 소개</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+:focus-visible{outline:2px solid #1A1A18;outline-offset:2px}
+a{color:inherit}
+</style>
+</helmet>
+<div style="box-sizing: border-box; background: #FFFFFF; color: #1A1A18; font-family: 'Noto Sans KR', sans-serif; font-size: 14px; display: flex; flex-direction: column">
+
+<header style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; padding: 14px 32px; border-bottom: 1px solid #E6E5E1">
+<a href="Landing.dc.html" style="font-size: 18px; font-weight: 700; letter-spacing: 0.02em; text-decoration: none; color: #1A1A18">Closet / Look</a>
+<nav aria-label="주 메뉴" style="display: flex; flex-wrap: wrap; gap: 4px 24px; margin-left: auto; font-size: 14px">
+<a href="Explore.dc.html" style="display: inline-flex; align-items: center; height: 44px; text-decoration: none; color: #3D3C38; font-weight: 500">룩 둘러보기</a>
+<a href="Main.dc.html" style="display: inline-flex; align-items: center; height: 44px; text-decoration: none; color: #3D3C38; font-weight: 500">피팅룸</a>
+</nav>
+<a href="Register.dc.html" style="display: inline-flex; align-items: center; justify-content: center; height: 44px; padding: 0 20px; border-radius: 22px; background: #1A1A18; color: #FFFFFF; font-size: 14px; font-weight: 700; text-decoration: none">내 옷장 만들기</a>
+</header>
+
+<section style="width: 100%; max-width: 1240px; margin: 0 auto; box-sizing: border-box; padding: 72px 32px 80px; display: flex; flex-wrap: wrap; align-items: center; gap: 56px">
+<div style="flex: 1 1 400px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+<h1 style="margin: 0; font-size: 46px; line-height: 1.25; font-weight: 700; letter-spacing: -0.01em">있는 옷부터 맞춰 보고,<br>없는 옷만 산다.</h1>
+<p style="margin: 0; max-width: 460px; font-size: 17px; line-height: 1.7; color: #3D3C38">마음에 드는 룩을 고르면 내 옷장과 한 벌씩 비교해요. 가진 옷은 아바타에 그대로 입혀 보고, 모자란 옷만 쇼핑몰로 연결해요.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
+<a href="Register.dc.html" style="display: inline-flex; align-items: center; justify-content: center; gap: 6px; height: 52px; padding: 0 24px; border: 0; border-radius: 6px; background: #1A1A18; color: #FFFFFF; font-size: 15px; font-weight: 700; text-decoration: none">내 옷장 만들기</a>
+<a href="Explore.dc.html" style="display: inline-flex; align-items: center; gap: 6px; height: 44px; padding: 0; border: 0; background: transparent; color: #1A1A18; font-size: 15px; font-weight: 500; text-decoration: none; height: 52px">룩 먼저 둘러보기<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+</div>
+<div style="font-size: 13px; color: #5F5E5A">가입 없이 시작해요. 옷장은 이 브라우저에 저장돼요.</div>
+</div>
+
+<div style="flex: 1 1 520px; min-width: 0; box-sizing: border-box; padding: 24px; border-radius: 16px; background: #FAFAF8; border: 1px solid #E6E5E1; display: flex; flex-wrap: wrap; gap: 20px">
+<img src="../assets/look.png" alt="검은 숏 패딩, 흰 티, 카모 카고 팬츠를 입은 모델" style="flex: 0 1 230px; min-width: 180px; width: 230px; height: auto; border-radius: 10px; display: block; align-self: flex-start">
+<div style="flex: 1 1 240px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<div>
+<div style="font-size: 12px; color: #5F5E5A">이 룩을 내 옷장과 비교하면</div>
+<div style="margin-top: 2px; font-size: 18px; font-weight: 700">카모 카고 스트릿 코디</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; justify-content: space-between; font-size: 13px"><span style="font-weight: 700">내 옷 2/3</span><span style="color: #5F5E5A">1벌만 사면 완성</span></div>
+<div style="height: 6px; border-radius: 3px; background: #ECEBE6; overflow: hidden"><div style="width: 67%; height: 100%; background: {{accent}}"></div></div>
+</div>
+<div style="display: flex; flex-direction: column">
+<div style="display: flex; align-items: center; gap: 12px; padding: 10px 0; border-top: 1px solid #E6E5E1">
+<div style="flex: none; width: 52px; height: 52px; border-radius: 8px; background: #FFFFFF; border: 1px solid #ECEBE6; display: flex; align-items: center; justify-content: center"><img src="../assets/jacket.png" alt="" style="width: 100%; height: 100%; object-fit: contain; padding: 6px; box-sizing: border-box"></div>
+<div style="flex: 1; min-width: 0"><div style="font-size: 13px; font-weight: 700">블랙 숏 패딩 점퍼</div><div style="font-size: 12px; color: #3D3C38">→ 내 블랙 푸퍼 자켓</div></div>
+<span style="flex: none; font-size: 12px; font-weight: 700; color: #3D3C38">≈ 대체 가능</span>
+</div>
+<div style="display: flex; align-items: center; gap: 12px; padding: 10px 0; border-top: 1px solid #E6E5E1">
+<div style="flex: none; width: 52px; height: 52px; border-radius: 8px; background: #FFFFFF; border: 1px solid #ECEBE6; display: flex; align-items: center; justify-content: center"><img src="../assets/tee.png" alt="" style="width: 100%; height: 100%; object-fit: contain; padding: 6px; box-sizing: border-box"></div>
+<div style="flex: 1; min-width: 0"><div style="font-size: 13px; font-weight: 700">화이트 롱슬리브 티</div></div>
+<span style="flex: none; display: inline-flex; align-items: center; gap: 3px; font-size: 12px; font-weight: 700; color: {{accent}}"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>있음</span>
+</div>
+<div style="display: flex; align-items: center; gap: 12px; padding: 10px 0; border-top: 1px solid #E6E5E1">
+<div style="flex: none; width: 52px; height: 52px; border-radius: 8px; background: #FFFFFF; border: 1px solid #ECEBE6; display: flex; align-items: center; justify-content: center"><img src="../assets/pants.png" alt="" style="width: 100%; height: 100%; object-fit: contain; padding: 6px; box-sizing: border-box"></div>
+<div style="flex: 1; min-width: 0"><div style="font-size: 13px; font-weight: 700">카모 와이드 카고 팬츠</div></div>
+<span style="flex: none; font-size: 12px; font-weight: 700; color: #1A1A18">없음</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section style="background: #FAFAF8; border-top: 1px solid #E6E5E1; border-bottom: 1px solid #E6E5E1">
+<div style="width: 100%; max-width: 1240px; margin: 0 auto; box-sizing: border-box; padding: 72px 32px; display: flex; flex-direction: column; gap: 36px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px">
+<h2 style="margin: 0; font-size: 30px; line-height: 1.35; font-weight: 700">옷장, 피팅룸, 쇼핑이<br>한 화면에 나란히 있어요</h2>
+<p style="margin: 0; max-width: 420px; font-size: 15px; line-height: 1.7; color: #3D3C38">왼쪽에서 내 옷을 꺼내 가운데 아바타에 입히고, 없는 옷은 오른쪽 쇼핑 리스트에 모여요.</p>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: stretch">
+
+<div style="flex: 1 1 300px; min-width: 0; box-sizing: border-box; padding: 24px; background: #FFFFFF; border: 1px solid #E6E5E1; border-radius: 14px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; align-items: baseline; gap: 10px"><span style="font-size: 13px; font-weight: 700; color: #5F5E5A">01</span><h3 style="margin: 0; font-size: 18px; font-weight: 700">내 옷장</h3><span style="font-size: 13px; color: #5F5E5A">가진 옷</span></div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
+<div style="aspect-ratio: 1 / 1; border-radius: 8px; background: #F0EFEB; display: flex; align-items: center; justify-content: center"><img src="../assets/jacket.png" alt="블랙 푸퍼 자켓" style="width: 100%; height: 100%; object-fit: contain; padding: 10%; box-sizing: border-box"></div>
+<div style="aspect-ratio: 1 / 1; border-radius: 8px; background: #F0EFEB; display: flex; align-items: center; justify-content: center"><img src="../assets/tee.png" alt="화이트 롱슬리브 티" style="width: 100%; height: 100%; object-fit: contain; padding: 10%; box-sizing: border-box"></div>
+<div style="aspect-ratio: 1 / 1; border-radius: 8px; background: #F0EFEB; display: flex; align-items: center; justify-content: center"><svg role="img" aria-label="데님 팬츠" width="60%" height="60%" viewBox="0 0 100 100"><path d="M28 6 L72 6 L78 96 L56 96 L50 34 L44 96 L22 96Z" fill="#4A6A8F" stroke="#BDBBB4" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
+<div style="aspect-ratio: 1 / 1; border-radius: 8px; background: #F0EFEB; display: flex; align-items: center; justify-content: center"><svg role="img" aria-label="롱 트렌치 코트" width="62%" height="62%" viewBox="0 0 100 100"><path d="M28 10 L8 24 L14 66 L26 64 L26 92 L74 92 L74 64 L86 66 L92 24 L72 10 Q50 22 28 10Z" fill="#B49A78" stroke="#BDBBB4" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
+<div style="aspect-ratio: 1 / 1; border-radius: 8px; background: #F0EFEB; display: flex; align-items: center; justify-content: center"><svg role="img" aria-label="그레이 후드" width="60%" height="60%" viewBox="0 0 100 100"><path d="M30 12 L10 26 L18 46 L30 40 L30 90 L70 90 L70 40 L82 46 L90 26 L70 12 Q50 24 30 12Z" fill="#8A8D92" stroke="#BDBBB4" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
+<div style="aspect-ratio: 1 / 1; border-radius: 8px; background: #F0EFEB; display: flex; align-items: center; justify-content: center"><svg role="img" aria-label="화이트 스니커즈" width="66%" height="66%" viewBox="0 0 100 100"><path d="M6 52 L34 48 L44 58 L90 60 Q96 62 94 74 L6 74Z" fill="#F2F2EE" stroke="#BDBBB4" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
+</div>
+<p style="margin: 0; font-size: 14px; line-height: 1.6; color: #3D3C38">사진 한 장씩 올리면 배경을 지우고 종류와 색을 정리해요. 룩을 볼 때마다 이 옷장과 자동으로 비교돼요.</p>
+</div>
+
+<div style="flex: 1 1 260px; min-width: 0; box-sizing: border-box; padding: 24px; background: #FFFFFF; border: 1px solid #1A1A18; border-radius: 14px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; align-items: baseline; gap: 10px"><span style="font-size: 13px; font-weight: 700; color: #5F5E5A">02</span><h3 style="margin: 0; font-size: 18px; font-weight: 700">피팅룸</h3><span style="font-size: 13px; color: #5F5E5A">입혀 보기</span></div>
+<div style="position: relative; align-self: center; width: 220px; aspect-ratio: 2 / 3; border-radius: 8px; background: #F7F6F3; overflow: hidden">
+<svg aria-hidden="true" viewBox="0 0 320 480" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%"><ellipse cx="160" cy="475" rx="58" ry="4" fill="#E2E0DA"/><path d="M110.0 112.0 C108.2 108.3 104.7 106.5 102.0 112.0 C99.3 117.5 96.5 133.3 94.0 145.0 C91.5 156.7 90.0 169.2 87.0 182.0 C84.0 194.8 78.8 210.7 76.0 222.0 C73.2 233.3 72.2 240.3 70.0 250.0 C67.8 259.7 63.5 272.7 63.0 280.0 C62.5 287.3 64.8 291.5 67.0 294.0 C69.2 296.5 73.7 297.0 76.0 295.0 C78.3 293.0 80.2 289.2 81.0 282.0 C81.8 274.8 79.5 262.0 81.0 252.0 C82.5 242.0 87.0 233.0 90.0 222.0 C93.0 211.0 96.0 198.0 99.0 186.0 C102.0 174.0 105.7 158.7 108.0 150.0 C110.3 141.3 112.7 140.3 113.0 134.0 C113.3 127.7 111.8 115.7 110.0 112.0 Z" fill="#E9E7E1" stroke="#C3C0B7" stroke-width="1.2"/><path d="M210.0 112.0 C211.8 108.3 215.3 106.5 218.0 112.0 C220.7 117.5 223.5 133.3 226.0 145.0 C228.5 156.7 230.0 169.2 233.0 182.0 C236.0 194.8 241.2 210.7 244.0 222.0 C246.8 233.3 247.8 240.3 250.0 250.0 C252.2 259.7 256.5 272.7 257.0 280.0 C257.5 287.3 255.2 291.5 253.0 294.0 C250.8 296.5 246.3 297.0 244.0 295.0 C241.7 293.0 239.8 289.2 239.0 282.0 C238.2 274.8 240.5 262.0 239.0 252.0 C237.5 242.0 233.0 233.0 230.0 222.0 C227.0 211.0 224.0 198.0 221.0 186.0 C218.0 174.0 214.3 158.7 212.0 150.0 C209.7 141.3 207.3 140.3 207.0 134.0 C206.7 127.7 208.2 115.7 210.0 112.0 Z" fill="#E9E7E1" stroke="#C3C0B7" stroke-width="1.2"/><path d="M170.0 64.0 C173.5 66.7 170.0 75.7 171.0 80.0 C172.0 84.3 172.8 87.7 176.0 90.0 C179.2 92.3 185.0 92.5 190.0 94.0 C195.0 95.5 201.7 96.8 206.0 99.0 C210.3 101.2 214.0 103.8 216.0 107.0 C218.0 110.2 218.7 114.2 218.0 118.0 C217.3 121.8 213.8 126.3 212.0 130.0 C210.2 133.7 208.2 135.0 207.0 140.0 C205.8 145.0 206.2 152.7 205.0 160.0 C203.8 167.3 201.2 177.7 200.0 184.0 C198.8 190.3 197.8 193.0 198.0 198.0 C198.2 203.0 199.7 208.3 201.0 214.0 C202.3 219.7 205.0 226.0 206.0 232.0 C207.0 238.0 207.2 242.8 207.0 250.0 C206.8 257.2 205.8 265.8 205.0 275.0 C204.2 284.2 203.5 295.0 202.0 305.0 C200.5 315.0 197.8 326.5 196.0 335.0 C194.2 343.5 191.5 348.8 191.0 356.0 C190.5 363.2 193.0 369.8 193.0 378.0 C193.0 386.2 192.5 395.0 191.0 405.0 C189.5 415.0 185.5 430.5 184.0 438.0 C182.5 445.5 181.7 445.8 182.0 450.0 C182.3 454.2 185.5 459.5 186.0 463.0 C186.5 466.5 186.7 469.3 185.0 471.0 C183.3 472.7 179.0 472.8 176.0 473.0 C173.0 473.2 168.5 474.2 167.0 472.0 C165.5 469.8 166.7 464.0 167.0 460.0 C167.3 456.0 168.8 454.7 169.0 448.0 C169.2 441.3 168.2 429.3 168.0 420.0 C167.8 410.7 168.3 402.0 168.0 392.0 C167.7 382.0 166.3 370.3 166.0 360.0 C165.7 349.7 166.2 340.8 166.0 330.0 C165.8 319.2 165.5 305.7 165.0 295.0 C164.5 284.3 163.8 272.5 163.0 266.0 C162.2 259.5 161.3 251.2 160.0 256.0 C158.7 260.8 156.0 282.7 155.0 295.0 C154.0 307.3 154.2 319.2 154.0 330.0 C153.8 340.8 154.3 349.7 154.0 360.0 C153.7 370.3 152.3 382.0 152.0 392.0 C151.7 402.0 152.2 410.7 152.0 420.0 C151.8 429.3 150.8 441.3 151.0 448.0 C151.2 454.7 152.7 456.0 153.0 460.0 C153.3 464.0 154.5 469.8 153.0 472.0 C151.5 474.2 147.0 473.2 144.0 473.0 C141.0 472.8 136.7 472.7 135.0 471.0 C133.3 469.3 133.5 466.5 134.0 463.0 C134.5 459.5 137.7 454.2 138.0 450.0 C138.3 445.8 137.5 445.5 136.0 438.0 C134.5 430.5 130.5 415.0 129.0 405.0 C127.5 395.0 127.0 386.2 127.0 378.0 C127.0 369.8 129.5 363.2 129.0 356.0 C128.5 348.8 125.8 343.5 124.0 335.0 C122.2 326.5 119.5 315.0 118.0 305.0 C116.5 295.0 115.8 284.2 115.0 275.0 C114.2 265.8 113.2 257.2 113.0 250.0 C112.8 242.8 113.0 238.0 114.0 232.0 C115.0 226.0 117.7 219.7 119.0 214.0 C120.3 208.3 121.8 203.0 122.0 198.0 C122.2 193.0 121.2 190.3 120.0 184.0 C118.8 177.7 116.2 167.3 115.0 160.0 C113.8 152.7 114.2 145.0 113.0 140.0 C111.8 135.0 109.8 133.7 108.0 130.0 C106.2 126.3 102.7 121.8 102.0 118.0 C101.3 114.2 102.0 110.2 104.0 107.0 C106.0 103.8 109.7 101.2 114.0 99.0 C118.3 96.8 125.0 95.5 130.0 94.0 C135.0 92.5 140.8 92.3 144.0 90.0 C147.2 87.7 148.0 84.3 149.0 80.0 C150.0 75.7 146.5 66.7 150.0 64.0 C153.5 61.3 166.5 61.3 170.0 64.0 Z" fill="#E9E7E1" stroke="#C3C0B7" stroke-width="1.2"/><path d="M160.0 20.0 C165.3 20.0 172.7 21.3 176.0 25.0 C179.3 28.7 180.0 35.8 180.0 42.0 C180.0 48.2 178.0 57.2 176.0 62.0 C174.0 66.8 170.7 69.2 168.0 71.0 C165.3 72.8 162.7 73.0 160.0 73.0 C157.3 73.0 154.7 72.8 152.0 71.0 C149.3 69.2 146.0 66.8 144.0 62.0 C142.0 57.2 140.0 48.2 140.0 42.0 C140.0 35.8 140.7 28.7 144.0 25.0 C147.3 21.3 154.7 20.0 160.0 20.0 Z" fill="#E9E7E1" stroke="#C3C0B7" stroke-width="1.2"/><path d="M146 88 Q160 95 174 88" fill="none" stroke="#C3C0B7" stroke-width="1"/></svg>
+<img src="../assets/pants.png" alt="" style="position: absolute; z-index: 1; left: 25.5%; top: 38.3%; width: 47.8%; height: 55.4%; object-fit: fill">
+<svg aria-hidden="true" viewBox="0 0 320 480" style="position: absolute; z-index: 2; left: 0; top: 0; width: 100%; height: 100%"><path d="M166 470 C166 459 172 455 180 455 C190 455 194 462 194 470 L194 476 L166 476 Z M154 470 C154 459 148 455 140 455 C130 455 126 462 126 470 L126 476 L154 476 Z" fill="#F4F3EF" stroke="#8A8880" stroke-width="1"/></svg>
+<img src="../assets/tee.png" alt="" style="position: absolute; z-index: 3; left: 20.9%; top: 15.2%; width: 61.9%; height: auto">
+<img src="../assets/jacket.png" alt="" style="position: absolute; z-index: 4; left: 19.75%; top: 12.9%; width: 61%; height: 39.8%; object-fit: fill">
+<div style="position: absolute; z-index: 5; right: 4px; top: 60%; display: flex; align-items: center; gap: 5px; padding: 2px 4px 2px 0; background: rgba(247, 246, 243, 0.92)"><span style="width: 14px; height: 1px; background: {{accent}}"></span><span style="font-size: 11px; line-height: 1.35; color: #3D3C38"><span style="display: block; font-weight: 700; color: {{accent}}">쇼핑몰 상품</span>아직 없는 옷</span></div>
+</div>
+<p style="margin: 0; font-size: 14px; line-height: 1.6; color: #3D3C38">내 옷과 쇼핑몰 상품을 섞어 입혀 봐요. 아직 없는 옷에는 표시가 붙어서, 아바타가 그대로 장바구니가 돼요.</p>
+</div>
+
+<div style="flex: 1 1 300px; min-width: 0; box-sizing: border-box; padding: 24px; background: #FFFFFF; border: 1px solid #E6E5E1; border-radius: 14px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; align-items: baseline; gap: 10px"><span style="font-size: 13px; font-weight: 700; color: #5F5E5A">03</span><h3 style="margin: 0; font-size: 18px; font-weight: 700">쇼핑 리스트</h3><span style="font-size: 13px; color: #5F5E5A">없는 옷만</span></div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; gap: 12px; align-items: center; padding: 12px; border-radius: 10px; border: 1px solid #E6E5E1">
+<div style="flex: none; width: 64px; height: 64px; border-radius: 8px; background: #F0EFEB"><img src="../assets/pants.png" alt="카모 와이드 카고 팬츠" style="width: 100%; height: 100%; object-fit: contain; padding: 6px; box-sizing: border-box"></div>
+<div style="flex: 1; min-width: 0"><div style="font-size: 14px; font-weight: 700">카모 와이드 카고 팬츠</div><div style="margin-top: 2px; font-size: 12px; font-weight: 700; color: {{accent}}">사면 완성되는 코디 2개</div></div>
+</div>
+<div style="display: flex; gap: 12px; align-items: center; padding: 12px; border-radius: 10px; border: 1px solid #E6E5E1">
+<div style="flex: none; width: 64px; height: 64px; border-radius: 8px; background: #F0EFEB; display: flex; align-items: center; justify-content: center"><svg role="img" aria-label="네이비 울 코트" width="62%" height="62%" viewBox="0 0 100 100"><path d="M28 10 L8 24 L14 66 L26 64 L26 92 L74 92 L74 64 L86 66 L92 24 L72 10 Q50 22 28 10Z" fill="#1F2F4D" stroke="#BDBBB4" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
+<div style="flex: 1; min-width: 0"><div style="font-size: 14px; font-weight: 700">네이비 울 코트</div><div style="margin-top: 2px; font-size: 12px; font-weight: 700; color: {{accent}}">사면 완성되는 코디 1개</div></div>
+</div>
+</div>
+<p style="margin: 0; font-size: 14px; line-height: 1.6; color: #3D3C38">많은 코디를 완성해 주는 옷이 위로 와요. 결제는 각 쇼핑몰에서 하고, 산 옷은 바로 옷장으로 옮겨요.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<section style="width: 100%; max-width: 1240px; margin: 0 auto; box-sizing: border-box; padding: 64px 32px">
+<div style="box-sizing: border-box; padding: 48px; border-radius: 16px; background: #1A1A18; color: #FFFFFF; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px">
+<div>
+<h2 style="margin: 0; font-size: 28px; font-weight: 700">옷장 정리부터 시작해 볼까요</h2>
+<p style="margin: 8px 0 0; font-size: 15px; color: #D9D8D3">옷 사진 한 장이면 돼요. 열 벌쯤 올리면 비교가 꽤 정확해져요.</p>
+</div>
+<a href="Register.dc.html" style="display: inline-flex; align-items: center; justify-content: center; gap: 6px; height: 52px; padding: 0 24px; border: 0; border-radius: 6px; background: #FFFFFF; color: #1A1A18; font-size: 15px; font-weight: 700; text-decoration: none">첫 옷 등록하기</a>
+</div>
+</section>
+
+<footer style="border-top: 1px solid #E6E5E1">
+<div style="width: 100%; max-width: 1240px; margin: 0 auto; box-sizing: border-box; padding: 24px 32px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; font-size: 13px; color: #5F5E5A">
+<span>Closet / Look · 개인 프로젝트</span>
+<span>룩 사진과 상품 정보의 권리는 각 쇼핑몰에 있어요.</span>
+</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#2E5E4E","options":["#2E5E4E","#1F3A5F","#7A3B2E"]},"$preview":{"width":1440,"height":1760}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const accent = this.props.accent ?? '#2E5E4E';
+    return { accent: accent, accentSoft: accent + '1F' };
+  }
+}
+</script>
+</body>
+</html>

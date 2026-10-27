@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>옷 등록 모바일</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+:focus-visible{outline:2px solid #1A1A18;outline-offset:2px}
+button{cursor:pointer;font-family:inherit}
+a{color:inherit}
+input{font-family:inherit}
+</style>
+</helmet>
+<div style="position: relative; width: 390px; height: 844px; overflow: hidden; box-sizing: border-box; background: #FFFFFF; color: #1A1A18; font-family: 'Noto Sans KR', sans-serif; font-size: 14px">
+
+<header style="position: absolute; left: 0; right: 0; top: 54px; height: 44px; box-sizing: border-box; padding: 0 16px; display: flex; align-items: center; justify-content: space-between">
+<a href="M_Fitting.dc.html" style="width: 64px; height: 44px; display: flex; align-items: center; color: #1A1A18; font-size: 16px; text-decoration: none">취소</a>
+<h1 style="margin: 0; font-size: 17px; font-weight: 700">옷 등록</h1>
+<span style="width: 64px; text-align: right; font-size: 14px; color: #5F5E5A">{{ step }} / 3</span>
+</header>
+<div aria-hidden="true" style="position: absolute; left: 0; right: 0; top: 98px; height: 2px; background: #ECEBE6"><div style="height: 100%; width: {{ progress }}; background: #1A1A18"></div></div>
+
+<sc-if value="{{ isStep1 }}" hint-placeholder-val="{{ false }}">
+<main style="position: absolute; left: 0; right: 0; top: 100px; bottom: 0; overflow-y: auto; box-sizing: border-box; padding: 24px 16px 40px">
+<h2 style="margin: 0; font-size: 24px; line-height: 1.35; font-weight: 700">옷 사진을<br>올려 주세요</h2>
+<p style="margin: 8px 0 20px; font-size: 14px; line-height: 1.6; color: #3D3C38">배경을 지우고 종류와 색을 정리해서 옷장에 넣어요.</p>
+<div style="display: flex; flex-direction: column; border-top: 1px solid #E6E5E1">
+<button type="button" onClick="{{ toStep2 }}" style="display: flex; align-items: center; gap: 14px; min-height: 72px; padding: 0; border: 0; border-bottom: 1px solid #E6E5E1; background: transparent; color: #1A1A18; text-align: left">
+<svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg><span style="flex: 1"><span style="display: block; font-size: 16px; font-weight: 700">사진 찍기</span><span style="display: block; margin-top: 2px; font-size: 13px; color: #5F5E5A">바닥에 펼치거나 옷걸이에 걸고 찍어요</span></span><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5F5E5A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+</button>
+<button type="button" onClick="{{ toStep2 }}" style="display: flex; align-items: center; gap: 14px; min-height: 72px; padding: 0; border: 0; border-bottom: 1px solid #E6E5E1; background: transparent; color: #1A1A18; text-align: left">
+<svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="1"/><circle cx="9" cy="9" r="1.5"/><path d="M20 15l-5-5-9 9"/></svg><span style="flex: 1"><span style="display: block; font-size: 16px; font-weight: 700">앨범에서 고르기</span><span style="display: block; margin-top: 2px; font-size: 13px; color: #5F5E5A">여러 장을 한 번에 올릴 수 있어요</span></span><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5F5E5A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+</button>
+<button type="button" onClick="{{ toStep2 }}" style="display: flex; align-items: center; gap: 14px; min-height: 72px; padding: 0; border: 0; border-bottom: 1px solid #E6E5E1; background: transparent; color: #1A1A18; text-align: left">
+<svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg><span style="flex: 1"><span style="display: block; font-size: 16px; font-weight: 700">상품 링크로 등록</span><span style="display: block; margin-top: 2px; font-size: 13px; color: #5F5E5A">쇼핑몰 주소로 상품명과 사진을 가져와요</span></span><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5F5E5A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+</button>
+</div>
+<h3 style="margin: 28px 0 8px; font-size: 14px; font-weight: 700">잘 되는 사진</h3>
+<ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 4px; font-size: 13px; line-height: 1.55; color: #3D3C38">
+<li>옷 한 벌만, 단색 배경에서 찍어요.</li>
+<li>사람이 입은 사진은 배경 제거가 잘 안 돼요.</li>
+<li>옷 전체가 잘리지 않게 담아요.</li>
+</ul>
+</main>
+</sc-if>
+
+<sc-if value="{{ isStep2 }}" hint-placeholder-val="{{ true }}">
+<main style="position: absolute; left: 0; right: 0; top: 100px; bottom: 98px; overflow-y: auto; box-sizing: border-box; padding-bottom: 24px">
+<div style="position: relative; height: 250px; background: {{ previewBg }}">
+<img src="{{ previewSrc }}" alt="{{ previewAlt }}" style="width: 100%; height: 100%; object-fit: contain; padding: 18px 0 30px; box-sizing: border-box">
+<div style="position: absolute; left: 16px; right: 8px; bottom: 0; display: flex; align-items: center; justify-content: space-between">
+<span style="font-size: 12px; color: #3D3C38">{{ previewCaption }}</span>
+<button type="button" onClick="{{ toggleOrig }}" style="height: 44px; padding: 0 8px; border: 0; background: transparent; color: #1A1A18; font-size: 13px; font-weight: 700">{{ origLabel }}</button>
+</div>
+</div>
+<div style="padding: 16px 16px 0; display: flex; flex-direction: column; gap: 14px">
+<div><div style="font-size: 13px; font-weight: 700; margin-bottom: 2px">종류</div><div style="display: flex; gap: 22px; overflow-x: auto; margin: 0 -16px; padding: 0 16px"><sc-for list="{{ cats }}" as="c" hint-placeholder-count="4"><button type="button" aria-pressed="{{ c.on }}" onClick="{{ c.pick }}" style="height: 44px; padding: 0 2px; border: 0; background: transparent; color: {{ c.fg }}; font-size: 15px; font-weight: {{ c.weight }}; box-shadow: inset 0 -2px 0 {{ c.line }}; white-space: nowrap; flex: none">{{c.label}}</button></sc-for></div></div>
+<div><div style="font-size: 13px; font-weight: 700; margin-bottom: 2px">색</div><div style="display: flex; gap: 18px; overflow-x: auto; margin: 0 -16px; padding: 0 16px"><sc-for list="{{ colors }}" as="c" hint-placeholder-count="8"><button type="button" aria-pressed="{{ c.on }}" onClick="{{ c.pick }}" style="height: 44px; padding: 0 2px; display: inline-flex; align-items: center; gap: 6px; border: 0; background: transparent; color: {{ c.fg }}; font-size: 14px; font-weight: {{ c.weight }}; box-shadow: inset 0 -2px 0 {{ c.line }}; white-space: nowrap; flex: none"><span style="width: 16px; height: 16px; border-radius: 8px; border: 1px solid #A8A69F; background: {{ c.hex }}"></span>{{c.label}}</button></sc-for></div></div>
+<div><div style="font-size: 13px; font-weight: 700; margin-bottom: 2px">핏</div><div style="display: flex; gap: 22px; overflow-x: auto; margin: 0 -16px; padding: 0 16px"><sc-for list="{{ fits }}" as="c" hint-placeholder-count="4"><button type="button" aria-pressed="{{ c.on }}" onClick="{{ c.pick }}" style="height: 44px; padding: 0 2px; border: 0; background: transparent; color: {{ c.fg }}; font-size: 15px; font-weight: {{ c.weight }}; box-shadow: inset 0 -2px 0 {{ c.line }}; white-space: nowrap; flex: none">{{c.label}}</button></sc-for></div></div>
+<div><div style="font-size: 13px; font-weight: 700; margin-bottom: 2px">계절 <span style="font-weight: 400; color: #5F5E5A">여러 개</span></div><div style="display: flex; gap: 22px"><sc-for list="{{ seasons }}" as="c" hint-placeholder-count="3"><button type="button" role="checkbox" aria-checked="{{ c.on }}" onClick="{{ c.pick }}" style="display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0; border: 0; background: transparent; color: #1A1A18; font-size: 15px"><span style="flex: none; width: 20px; height: 20px; box-sizing: border-box; border: 1.5px solid {{ c.boxLine }}; border-radius: 3px; background: {{ c.box }}; display: flex; align-items: center; justify-content: center"><sc-if value="{{ c.on }}" hint-placeholder-val="{{ false }}"><svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></sc-if></span>{{c.label}}</button></sc-for></div></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="m-alias" style="font-size: 13px; font-weight: 700">내 옷장에서 부를 이름</label><input id="m-alias" type="text" value="{{ alias }}" onChange="{{ setAlias }}" style="height: 48px; box-sizing: border-box; padding: 0 14px; border: 1px solid #8A8880; border-radius: 8px; font-size: 16px"><span style="font-size: 12px; color: #5F5E5A">종류와 색으로 만든 제안이에요.</span></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="m-full" style="font-size: 13px; font-weight: 700">원본 상품명 <span style="font-weight: 400; color: #5F5E5A">선택</span></label><input id="m-full" type="text" value="{{ fullName }}" onChange="{{ setFull }}" style="height: 48px; box-sizing: border-box; padding: 0 14px; border: 1px solid #8A8880; border-radius: 8px; font-size: 16px"></div>
+</div>
+</main>
+<div style="position: absolute; left: 0; right: 0; bottom: 0; box-sizing: border-box; padding: 12px 16px 34px; background: #FFFFFF; border-top: 1px solid #E6E5E1">
+<button type="button" onClick="{{ toStep3 }}" style="display: flex; align-items: center; justify-content: center; width: 100%; height: 52px; border: 0; border-radius: 6px; background: #1A1A18; color: #FFFFFF; font-size: 16px; font-weight: 700; text-decoration: none">옷장에 추가</button>
+</div>
+</sc-if>
+
+<sc-if value="{{ isStep3 }}" hint-placeholder-val="{{ false }}">
+<main style="position: absolute; left: 0; right: 0; top: 100px; bottom: 150px; box-sizing: border-box; padding: 0 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; text-align: center">
+<div style="width: 200px; aspect-ratio: 1 / 1; border-radius: 8px; background: #F0EFEB"><img src="../assets/tee.png" alt="{{ alias }}" style="width: 100%; height: 100%; object-fit: contain; padding: 8%; box-sizing: border-box"></div>
+<div style="margin-top: 10px; display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 700; color: {{accent}}"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>옷장에 추가했어요</div>
+<h2 style="margin: 0; font-size: 22px; font-weight: 700">{{alias}}</h2>
+<div style="font-size: 13px; color: #5F5E5A">{{summary}}</div>
+<div style="font-size: 13px; color: #5F5E5A">내 옷장 11벌</div>
+</main>
+<div style="position: absolute; left: 0; right: 0; bottom: 0; box-sizing: border-box; padding: 12px 16px 34px; display: flex; flex-direction: column; align-items: center; gap: 4px">
+<a href="M_Fitting.dc.html" style="display: flex; align-items: center; justify-content: center; width: 100%; height: 52px; border: 0; border-radius: 6px; background: #1A1A18; color: #FFFFFF; font-size: 16px; font-weight: 700; text-decoration: none">피팅룸에서 입혀보기</a>
+<button type="button" onClick="{{ again }}" style="height: 44px; padding: 0 12px; border: 0; background: transparent; color: #1A1A18; font-size: 15px; font-weight: 500">한 벌 더 등록</button>
+</div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#2E5E4E","options":["#2E5E4E","#1F3A5F","#7A3B2E"]},"startStep":{"editor":"enum","default":"2","options":["1","2","3"]},"$preview":{"width":390,"height":844}}'>
+const CATS = ['아우터', '상의', '하의', '신발', '가방', '모자'];
+const SUB = { '아우터': '자켓', '상의': '롱슬리브 티', '하의': '팬츠', '신발': '스니커즈', '가방': '가방', '모자': '모자' };
+const COLORS = [
+  { label: '화이트', hex: '#F2F2EE' }, { label: '블랙', hex: '#2B2B29' }, { label: '그레이', hex: '#8A8D92' }, { label: '네이비', hex: '#1F2F4D' },
+  { label: '베이지', hex: '#C9BFA8' }, { label: '브라운', hex: '#6B4A36' }, { label: '카키', hex: '#5B6148' }, { label: '블루', hex: '#4A6A8F' }
+];
+const FITS = ['슬림', '레귤러', '오버핏', '와이드'];
+const SEASONS = ['봄·가을', '여름', '겨울'];
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { step: parseInt(this.props.startStep || '2', 10), cat: '상의', color: '화이트', fit: '오버핏', seasons: ['봄·가을', '겨울'], alias: null, full: 'FN DOODLE LONG SLV TEE white', orig: false };
+  }
+  opt(label, on, pick) {
+    return { label: label, on: on, pick: pick, fg: on ? '#1A1A18' : '#5F5E5A', weight: on ? '700' : '500', line: on ? '#1A1A18' : 'transparent' };
+  }
+  renderVals() {
+    const s = this.state;
+    const accent = this.props.accent ?? '#2E5E4E';
+    const alias = s.alias !== null ? s.alias : s.color + ' ' + SUB[s.cat];
+    return {
+      accent: accent, step: s.step, progress: Math.round(s.step / 3 * 100) + '%',
+      isStep1: s.step === 1, isStep2: s.step === 2, isStep3: s.step === 3,
+      toStep2: () => this.setState({ step: 2 }), toStep3: () => this.setState({ step: 3 }),
+      again: () => this.setState({ step: 1, alias: null }),
+      previewSrc: s.orig ? '../assets/tee_original.png' : '../assets/tee.png', previewBg: s.orig ? '#F5F5F5' : '#F0EFEB',
+      previewAlt: s.orig ? '원본 사진' : '배경을 지운 옷 사진', previewCaption: s.orig ? '원본 사진' : '배경을 지웠어요',
+      origLabel: s.orig ? '결과 보기' : '원본 보기', toggleOrig: () => this.setState({ orig: !s.orig }),
+      cats: CATS.map((c) => this.opt(c, s.cat === c, () => this.setState({ cat: c }))),
+      fits: FITS.map((c) => this.opt(c, s.fit === c, () => this.setState({ fit: c }))),
+      colors: COLORS.map((c) => Object.assign(this.opt(c.label, s.color === c.label, () => this.setState({ color: c.label })), { hex: c.hex })),
+      seasons: SEASONS.map((c) => { const on = s.seasons.indexOf(c) >= 0; return { label: c, on: on, box: on ? accent : '#FFFFFF', boxLine: on ? accent : '#5F5E5A',
+        pick: () => this.setState({ seasons: on ? s.seasons.filter((x) => x !== c) : s.seasons.concat([c]) }) }; }),
+      alias: alias, fullName: s.full,
+      setAlias: (e) => this.setState({ alias: e.target.value }), setFull: (e) => this.setState({ full: e.target.value }),
+      summary: [s.cat, s.color, s.fit, s.seasons.join('·')].filter((x) => x).join(' · ')
+    };
+  }
+}
+</script>
+</body>
+</html>

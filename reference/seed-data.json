@@ -1,0 +1,985 @@
+{
+ "note": "첫 실행 시 넣는 예시 데이터. 쇼핑 리스트는 2벌로 시작하고, 완료 확인 시나리오 4에서 카모 팬츠를 담으면 3벌이 된다.",
+ "garments": [
+  {
+   "id": "g_jacket",
+   "alias": "블랙 푸퍼 자켓",
+   "attrs": {
+    "category": "outer",
+    "colorFamily": "블랙",
+    "seasons": [
+     "spring_fall",
+     "winter"
+    ],
+    "fit": "regular",
+    "length": "cropped"
+   },
+   "image": "assets/jacket.png",
+   "colorHex": "#2B2B29",
+   "sourceTitle": null
+  },
+  {
+   "id": "g_trench",
+   "alias": "롱 트렌치 코트",
+   "attrs": {
+    "category": "outer",
+    "colorFamily": "베이지",
+    "seasons": [
+     "spring_fall"
+    ],
+    "fit": "regular",
+    "length": "long"
+   },
+   "image": null,
+   "colorHex": "#B49A78",
+   "sourceTitle": null
+  },
+  {
+   "id": "g_tee",
+   "alias": "화이트 롱슬리브 티",
+   "attrs": {
+    "category": "top",
+    "colorFamily": "화이트",
+    "seasons": [
+     "spring_fall",
+     "winter"
+    ],
+    "fit": "oversized",
+    "length": "regular"
+   },
+   "image": "assets/tee.png",
+   "colorHex": "#F2F2EE",
+   "sourceTitle": "FN DOODLE LONG SLV TEE white"
+  },
+  {
+   "id": "g_hood",
+   "alias": "그레이 후드",
+   "attrs": {
+    "category": "top",
+    "colorFamily": "그레이",
+    "seasons": [
+     "spring_fall",
+     "winter"
+    ],
+    "fit": "oversized",
+    "length": "regular"
+   },
+   "image": null,
+   "colorHex": "#8A8D92",
+   "sourceTitle": null
+  },
+  {
+   "id": "g_knit",
+   "alias": "블랙 니트",
+   "attrs": {
+    "category": "top",
+    "colorFamily": "블랙",
+    "seasons": [
+     "spring_fall",
+     "winter"
+    ],
+    "fit": "regular",
+    "length": "regular"
+   },
+   "image": null,
+   "colorHex": "#2B2B29",
+   "sourceTitle": null
+  },
+  {
+   "id": "g_denim",
+   "alias": "데님 팬츠",
+   "attrs": {
+    "category": "bottom",
+    "colorFamily": "블루",
+    "seasons": [
+     "spring_fall",
+     "summer",
+     "winter"
+    ],
+    "fit": "regular",
+    "length": "long"
+   },
+   "image": null,
+   "colorHex": "#4A6A8F",
+   "sourceTitle": null
+  },
+  {
+   "id": "g_slacks",
+   "alias": "블랙 슬랙스",
+   "attrs": {
+    "category": "bottom",
+    "colorFamily": "블랙",
+    "seasons": [
+     "spring_fall",
+     "summer",
+     "winter"
+    ],
+    "fit": "slim",
+    "length": "long"
+   },
+   "image": null,
+   "colorHex": "#2B2B29",
+   "sourceTitle": null
+  },
+  {
+   "id": "g_chino",
+   "alias": "와이드 치노 팬츠",
+   "attrs": {
+    "category": "bottom",
+    "colorFamily": "베이지",
+    "seasons": [
+     "spring_fall",
+     "summer"
+    ],
+    "fit": "wide",
+    "length": "long"
+   },
+   "image": null,
+   "colorHex": "#C9BFA8",
+   "sourceTitle": null
+  },
+  {
+   "id": "g_sneak",
+   "alias": "화이트 스니커즈",
+   "attrs": {
+    "category": "shoes",
+    "colorFamily": "화이트",
+    "seasons": [
+     "spring_fall",
+     "summer",
+     "winter"
+    ]
+   },
+   "image": null,
+   "colorHex": "#F4F3EF",
+   "sourceTitle": null
+  },
+  {
+   "id": "g_chelsea",
+   "alias": "첼시 부츠",
+   "attrs": {
+    "category": "shoes",
+    "colorFamily": "브라운",
+    "seasons": [
+     "spring_fall",
+     "winter"
+    ]
+   },
+   "image": null,
+   "colorHex": "#4A3426",
+   "sourceTitle": null
+  }
+ ],
+ "looks": [
+  {
+   "id": "l_camo",
+   "title": "카모 카고 스트릿 코디",
+   "source": "무신사 · 예시 사진",
+   "photo": "assets/look.png",
+   "tags": [
+    "가을",
+    "겨울",
+    "남자",
+    "패딩",
+    "스트릿",
+    "캠퍼스"
+   ],
+   "items": [
+    {
+     "id": "p_puffer",
+     "title": "[수빈 착용]씨빅 RDS 숏 푸퍼 Black",
+     "alias": "블랙 숏 패딩 점퍼",
+     "shop": "무신사",
+     "url": "https://www.musinsa.com",
+     "price": null,
+     "image": "assets/jacket.png",
+     "colorHex": "#2B2B29",
+     "attrs": {
+      "category": "outer",
+      "colorFamily": "블랙",
+      "seasons": [
+       "winter"
+      ],
+      "fit": "oversized",
+      "length": "cropped"
+     }
+    },
+    {
+     "id": "p_lmc_tee",
+     "title": "FN DOODLE LONG SLV TEE white",
+     "alias": "화이트 롱슬리브 티",
+     "shop": "무신사",
+     "url": "https://www.musinsa.com",
+     "price": null,
+     "image": "assets/tee.png",
+     "colorHex": "#F2F2EE",
+     "attrs": {
+      "category": "top",
+      "colorFamily": "화이트",
+      "seasons": [
+       "spring_fall",
+       "winter"
+      ],
+      "fit": "oversized",
+      "length": "regular"
+     }
+    },
+    {
+     "id": "p_camo",
+     "title": "카모 와이드 카고 팬츠",
+     "alias": "카모 와이드 카고 팬츠",
+     "shop": "무신사",
+     "url": "https://www.musinsa.com",
+     "price": null,
+     "image": "assets/pants.png",
+     "colorHex": "#4A5058",
+     "attrs": {
+      "category": "bottom",
+      "colorFamily": "카모",
+      "seasons": [
+       "spring_fall",
+       "winter"
+      ],
+      "fit": "wide",
+      "length": "long"
+     }
+    }
+   ]
+  },
+  {
+   "id": "l_trench",
+   "title": "베이지 트렌치 출근룩",
+   "source": "[출처]",
+   "photo": null,
+   "tags": [
+    "가을",
+    "남자",
+    "코트",
+    "출근"
+   ],
+   "items": [
+    {
+     "id": "p_trench",
+     "title": "베이지 트렌치 코트",
+     "alias": "베이지 트렌치 코트",
+     "shop": "[쇼핑몰]",
+     "url": null,
+     "price": null,
+     "image": null,
+     "colorHex": "#B49A78",
+     "attrs": {
+      "category": "outer",
+      "colorFamily": "베이지",
+      "seasons": [
+       "spring_fall"
+      ],
+      "fit": "regular",
+      "length": "long"
+     }
+    },
+    {
+     "id": "p_knit",
+     "title": "블랙 니트",
+     "alias": "블랙 니트",
+     "shop": "[쇼핑몰]",
+     "url": null,
+     "price": null,
+     "image": null,
+     "colorHex": "#2B2B29",
+     "attrs": {
+      "category": "top",
+      "colorFamily": "블랙",
+      "seasons": [
+       "spring_fall",
+       "winter"
+      ],
+      "fit": "regular",
+      "length": "regular"
+     }
+    },
+    {
+     "id": "p_slacks",
+     "title": "블랙 슬랙스",
+     "alias": "블랙 슬랙스",
+     "shop": "[쇼핑몰]",
+     "url": null,
+     "price": null,
+     "image": null,
+     "colorHex": "#2B2B29",
+     "attrs": {
+      "category": "bottom",
+      "colorFamily": "블랙",
+      "seasons": [
+       "spring_fall",
+       "summer",
+       "winter"
+      ],
+      "fit": "slim",
+      "length": "long"
+     }
+    },
+    {
+     "id": "p_chelsea",
+     "title": "브라운 첼시 부츠",
+     "alias": "브라운 첼시 부츠",
+     "shop": "[쇼핑몰]",
+     "url": null,
+     "price": null,
+     "image": null,
+     "colorHex": "#4A3426",
+     "attrs": {
+      "category": "shoes",
+      "colorFamily": "브라운",
+      "seasons": [
+       "spring_fall",
+       "winter"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "l_navy",
+   "title": "네이비 코트 미니멀",
+   "source": "[출처]",
+   "photo": null,
+   "tags": [
+    "가을",
+    "겨울",
+    "남자",
+    "코트",
+    "데이트"
+   ],
+   "items": [
+    {
+     "id": "p_navy",
+     "title": "네이비 울 코트",
+     "alias": "네이비 울 코트",
+     "shop": "[쇼핑몰]",
+     "url": null,
+     "price": null,
+     "image": null,
+     "colorHex": "#1F2F4D",
+     "attrs": {
+      "category": "outer",
+      "colorFamily": "네이비",
+      "seasons": [
+       "winter"
+      ],
+      "fit": "regular",
+      "length": "long"
+     }
+    },
+    {
+     "id": "p_wknit",
+     "title": "화이트 니트",
+     "alias": "화이트 니트",
+     "shop": "[쇼핑몰]",
+     "url": null,
+     "price": null,
+     "image": null,
+     "colorHex": "#F2F2EE",
+     "attrs": {
+      "category": "top",
+      "colorFamily": "화이트",
+      "seasons": [
+       "spring_fall",
+       "winter"
+      ],
+      "fit": "regular",
+      "length": "regular"
+     }
+    },
+    {
+     "id": "p_slacks2",
+     "title": "블랙 슬랙스",
+     "alias": "블랙 슬랙스",
+     "shop": "[쇼핑몰]",
+     "url": null,
+     "price": null,
+     "image": null,
+     "colorHex": "#2B2B29",
+     "attrs": {
+      "category": "bottom",
+      "colorFamily": "블랙",
+      "seasons": [
+       "spring_fall",
+       "summer",
+       "winter"
+      ],
+      "fit": "slim",
+      "length": "long"
+     }
+    },
+    {
+     "id": "p_sneak",
+     "title": "화이트 스니커즈",
+     "alias": "화이트 스니커즈",
+     "shop": "[쇼핑몰]",
+     "url": null,
+     "price": null,
+     "image": null,
+     "colorHex": "#F4F3EF",
+     "attrs": {
+      "category": "shoes",
+      "colorFamily": "화이트",
+      "seasons": [
+       "spring_fall",
+       "summer",
+       "winter"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "l_hood",
+   "title": "그레이 후드 레이어드",
+   "source": "[출처]",
+   "photo": null,
+   "tags": [
+    "가을",
+    "겨울",
+    "남자",
+    "패딩",
+    "캠퍼스"
+   ],
+   "items": [
+    {
+     "id": "p_puffer2",
+     "title": "블랙 패딩 점퍼",
+     "alias": "블랙 패딩 점퍼",
+     "shop": "[쇼핑몰]",
+     "url": null,
+     "price": null,
+     "image": null,
+     "colorHex": "#2B2B29",
+     "attrs": {
+      "category": "outer",
+      "colorFamily": "블랙",
+      "seasons": [
+       "winter"
+      ],
+      "fit": "regular",
+      "length": "cropped"
+     }
+    },
+    {
+     "id": "p_hood",
+     "title": "그레이 후드",
+     "alias": "그레이 후드",
+     "shop": "[쇼핑몰]",
+     "url": null,
+     "price": null,
+     "image": null,
+     "colorHex": "#8A8D92",
+     "attrs": {
+      "category": "top",
+      "colorFamily": "그레이",
+      "seasons": [
+       "spring_fall",
+       "winter"
+      ],
+      "fit": "oversized",
+      "length": "regular"
+     }
+    },
+    {
+     "id": "p_denim",
+     "title": "데님 팬츠",
+     "alias": "데님 팬츠",
+     "shop": "[쇼핑몰]",
+     "url": null,
+     "price": null,
+     "image": null,
+     "colorHex": "#4A6A8F",
+     "attrs": {
+      "category": "bottom",
+      "colorFamily": "블루",
+      "seasons": [
+       "spring_fall",
+       "summer",
+       "winter"
+      ],
+      "fit": "regular",
+      "length": "long"
+     }
+    },
+    {
+     "id": "p_sneak2",
+     "title": "화이트 스니커즈",
+     "alias": "화이트 스니커즈",
+     "shop": "[쇼핑몰]",
+     "url": null,
+     "price": null,
+     "image": null,
+     "colorHex": "#F4F3EF",
+     "attrs": {
+      "category": "shoes",
+      "colorFamily": "화이트",
+      "seasons": [
+       "spring_fall",
+       "summer",
+       "winter"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "l_brown",
+   "title": "브라운 코트 캠퍼스룩",
+   "source": "[출처]",
+   "photo": null,
+   "tags": [
+    "가을",
+    "남자",
+    "코트",
+    "캠퍼스"
+   ],
+   "items": [
+    {
+     "id": "p_brown",
+     "title": "브라운 울 코트",
+     "alias": "브라운 울 코트",
+     "shop": "[쇼핑몰]",
+     "url": null,
+     "price": null,
+     "image": null,
+     "colorHex": "#6B4A36",
+     "attrs": {
+      "category": "outer",
+      "colorFamily": "브라운",
+      "seasons": [
+       "spring_fall",
+       "winter"
+      ],
+      "fit": "regular",
+      "length": "long"
+     }
+    },
+    {
+     "id": "p_wknit2",
+     "title": "화이트 니트",
+     "alias": "화이트 니트",
+     "shop": "[쇼핑몰]",
+     "url": null,
+     "price": null,
+     "image": null,
+     "colorHex": "#F2F2EE",
+     "attrs": {
+      "category": "top",
+      "colorFamily": "화이트",
+      "seasons": [
+       "spring_fall",
+       "winter"
+      ],
+      "fit": "regular",
+      "length": "regular"
+     }
+    },
+    {
+     "id": "p_chino",
+     "title": "베이지 와이드 치노",
+     "alias": "베이지 와이드 치노",
+     "shop": "[쇼핑몰]",
+     "url": null,
+     "price": null,
+     "image": null,
+     "colorHex": "#C9BFA8",
+     "attrs": {
+      "category": "bottom",
+      "colorFamily": "베이지",
+      "seasons": [
+       "spring_fall"
+      ],
+      "fit": "wide",
+      "length": "long"
+     }
+    },
+    {
+     "id": "p_chelsea2",
+     "title": "브라운 첼시 부츠",
+     "alias": "브라운 첼시 부츠",
+     "shop": "[쇼핑몰]",
+     "url": null,
+     "price": null,
+     "image": null,
+     "colorHex": "#4A3426",
+     "attrs": {
+      "category": "shoes",
+      "colorFamily": "브라운",
+      "seasons": [
+       "spring_fall",
+       "winter"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "l_khaki",
+   "title": "카키 필드 재킷",
+   "source": "[출처]",
+   "photo": null,
+   "tags": [
+    "가을",
+    "남자",
+    "재킷",
+    "여행"
+   ],
+   "items": [
+    {
+     "id": "p_khaki",
+     "title": "카키 필드 재킷",
+     "alias": "카키 필드 재킷",
+     "shop": "[쇼핑몰]",
+     "url": null,
+     "price": null,
+     "image": null,
+     "colorHex": "#5B6148",
+     "attrs": {
+      "category": "outer",
+      "colorFamily": "카키",
+      "seasons": [
+       "spring_fall"
+      ],
+      "fit": "regular",
+      "length": "regular"
+     }
+    },
+    {
+     "id": "p_btee",
+     "title": "블랙 티",
+     "alias": "블랙 티",
+     "shop": "[쇼핑몰]",
+     "url": null,
+     "price": null,
+     "image": null,
+     "colorHex": "#2B2B29",
+     "attrs": {
+      "category": "top",
+      "colorFamily": "블랙",
+      "seasons": [
+       "spring_fall"
+      ],
+      "fit": "regular",
+      "length": "regular"
+     }
+    },
+    {
+     "id": "p_denim2",
+     "title": "데님 팬츠",
+     "alias": "데님 팬츠",
+     "shop": "[쇼핑몰]",
+     "url": null,
+     "price": null,
+     "image": null,
+     "colorHex": "#4A6A8F",
+     "attrs": {
+      "category": "bottom",
+      "colorFamily": "블루",
+      "seasons": [
+       "spring_fall",
+       "summer",
+       "winter"
+      ],
+      "fit": "regular",
+      "length": "long"
+     }
+    },
+    {
+     "id": "p_sneak3",
+     "title": "화이트 스니커즈",
+     "alias": "화이트 스니커즈",
+     "shop": "[쇼핑몰]",
+     "url": null,
+     "price": null,
+     "image": null,
+     "colorHex": "#F4F3EF",
+     "attrs": {
+      "category": "shoes",
+      "colorFamily": "화이트",
+      "seasons": [
+       "spring_fall",
+       "summer",
+       "winter"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "l_charcoal",
+   "title": "차콜 롱코트 다크톤",
+   "source": "[출처]",
+   "photo": null,
+   "tags": [
+    "가을",
+    "겨울",
+    "남자",
+    "코트",
+    "하객"
+   ],
+   "items": [
+    {
+     "id": "p_charcoal",
+     "title": "차콜 롱코트",
+     "alias": "차콜 롱코트",
+     "shop": "[쇼핑몰]",
+     "url": null,
+     "price": null,
+     "image": null,
+     "colorHex": "#3E4044",
+     "attrs": {
+      "category": "outer",
+      "colorFamily": "차콜",
+      "seasons": [
+       "winter"
+      ],
+      "fit": "oversized",
+      "length": "long"
+     }
+    },
+    {
+     "id": "p_knit2",
+     "title": "블랙 니트",
+     "alias": "블랙 니트",
+     "shop": "[쇼핑몰]",
+     "url": null,
+     "price": null,
+     "image": null,
+     "colorHex": "#2B2B29",
+     "attrs": {
+      "category": "top",
+      "colorFamily": "블랙",
+      "seasons": [
+       "spring_fall",
+       "winter"
+      ],
+      "fit": "regular",
+      "length": "regular"
+     }
+    },
+    {
+     "id": "p_slacks3",
+     "title": "블랙 슬랙스",
+     "alias": "블랙 슬랙스",
+     "shop": "[쇼핑몰]",
+     "url": null,
+     "price": null,
+     "image": null,
+     "colorHex": "#2B2B29",
+     "attrs": {
+      "category": "bottom",
+      "colorFamily": "블랙",
+      "seasons": [
+       "spring_fall",
+       "summer",
+       "winter"
+      ],
+      "fit": "slim",
+      "length": "long"
+     }
+    },
+    {
+     "id": "p_derby",
+     "title": "블랙 더비 슈즈",
+     "alias": "블랙 더비 슈즈",
+     "shop": "[쇼핑몰]",
+     "url": null,
+     "price": null,
+     "image": null,
+     "colorHex": "#2B2B29",
+     "attrs": {
+      "category": "shoes",
+      "colorFamily": "블랙",
+      "seasons": [
+       "spring_fall",
+       "summer",
+       "winter"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "l_denim",
+   "title": "데님 온 데님",
+   "source": "[출처]",
+   "photo": null,
+   "tags": [
+    "가을",
+    "남자",
+    "재킷",
+    "여행"
+   ],
+   "items": [
+    {
+     "id": "p_djacket",
+     "title": "데님 재킷",
+     "alias": "데님 재킷",
+     "shop": "[쇼핑몰]",
+     "url": null,
+     "price": null,
+     "image": null,
+     "colorHex": "#4A6A8F",
+     "attrs": {
+      "category": "outer",
+      "colorFamily": "블루",
+      "seasons": [
+       "spring_fall"
+      ],
+      "fit": "regular",
+      "length": "regular"
+     }
+    },
+    {
+     "id": "p_ivory",
+     "title": "아이보리 크롭 티",
+     "alias": "아이보리 크롭 티",
+     "shop": "[쇼핑몰]",
+     "url": null,
+     "price": null,
+     "image": null,
+     "colorHex": "#EFE9DC",
+     "attrs": {
+      "category": "top",
+      "colorFamily": "아이보리",
+      "seasons": [
+       "summer"
+      ],
+      "fit": "slim",
+      "length": "cropped"
+     }
+    },
+    {
+     "id": "p_denim3",
+     "title": "데님 팬츠",
+     "alias": "데님 팬츠",
+     "shop": "[쇼핑몰]",
+     "url": null,
+     "price": null,
+     "image": null,
+     "colorHex": "#4A6A8F",
+     "attrs": {
+      "category": "bottom",
+      "colorFamily": "블루",
+      "seasons": [
+       "spring_fall",
+       "summer",
+       "winter"
+      ],
+      "fit": "regular",
+      "length": "long"
+     }
+    },
+    {
+     "id": "p_canvas",
+     "title": "블루 캔버스 스니커즈",
+     "alias": "블루 캔버스 스니커즈",
+     "shop": "[쇼핑몰]",
+     "url": null,
+     "price": null,
+     "image": null,
+     "colorHex": "#4A6A8F",
+     "attrs": {
+      "category": "shoes",
+      "colorFamily": "블루",
+      "seasons": [
+       "spring_fall",
+       "summer",
+       "winter"
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "outfits": [
+  {
+   "id": "o_camo",
+   "title": "카모 카고 스트릿",
+   "slots": {
+    "outer": {
+     "garmentId": "g_jacket"
+    },
+    "top": {
+     "garmentId": "g_tee"
+    },
+    "bottom": {
+     "productId": "p_camo"
+    },
+    "shoes": {
+     "garmentId": "g_sneak"
+    }
+   }
+  },
+  {
+   "id": "o_denim",
+   "title": "데님 데일리",
+   "slots": {
+    "outer": {
+     "garmentId": "g_jacket"
+    },
+    "top": {
+     "garmentId": "g_tee"
+    },
+    "bottom": {
+     "garmentId": "g_denim"
+    },
+    "shoes": {
+     "garmentId": "g_sneak"
+    }
+   }
+  },
+  {
+   "id": "o_trench",
+   "title": "트렌치 출근",
+   "slots": {
+    "outer": {
+     "garmentId": "g_trench"
+    },
+    "top": {
+     "garmentId": "g_knit"
+    },
+    "bottom": {
+     "garmentId": "g_slacks"
+    },
+    "shoes": {
+     "garmentId": "g_chelsea"
+    }
+   }
+  },
+  {
+   "id": "o_hood",
+   "title": "후드 주말",
+   "slots": {
+    "outer": {
+     "garmentId": "g_trench"
+    },
+    "top": {
+     "garmentId": "g_hood"
+    },
+    "bottom": {
+     "garmentId": "g_chino"
+    },
+    "shoes": {
+     "garmentId": "g_sneak"
+    }
+   }
+  }
+ ],
+ "shoppingList": [
+  {
+   "productId": "p_navy",
+   "status": "wanted",
+   "addedAt": "2026-10-20"
+  },
+  {
+   "productId": "p_khaki",
+   "status": "wanted",
+   "addedAt": "2026-10-22"
+  }
+ ]
+}

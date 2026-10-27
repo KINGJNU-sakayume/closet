@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>룩 탐색 모바일</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+:focus-visible{outline:2px solid #1A1A18;outline-offset:2px}
+button{cursor:pointer;font-family:inherit}
+a{color:inherit}
+input{font-family:inherit}
+</style>
+</helmet>
+<div style="position: relative; width: 390px; height: 844px; overflow: hidden; box-sizing: border-box; background: #FFFFFF; color: #1A1A18; font-family: 'Noto Sans KR', sans-serif; font-size: 14px">
+
+<header style="position: absolute; left: 0; right: 0; top: 54px; box-sizing: border-box; padding: 0 16px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; align-items: center; height: 52px">
+<h1 style="margin: 0; flex: 1; font-size: 28px; font-weight: 700">룩 탐색</h1>
+<a href="M_Register.dc.html" aria-label="옷 등록" style="flex: none; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 22px; background: #1A1A18; color: #FFFFFF"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></a>
+</div>
+<a href="#" style="display: flex; align-items: center; gap: 8px; height: 40px; box-sizing: border-box; padding: 0 12px; border-radius: 10px; background: #F0EFEB; color: #1A1A18; text-decoration: none; font-size: 15px"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5F5E5A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span style="flex: 1">가을 남자 코트 코디</span></a>
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 8px">
+<button type="button" role="checkbox" aria-checked="{{ onlyMine }}" onClick="{{ toggleMine }}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0; border: 0; background: transparent; color: #1A1A18; font-size: 13px; font-weight: 500">
+<span style="flex: none; width: 18px; height: 18px; box-sizing: border-box; border: 1.5px solid {{ boxLine }}; border-radius: 3px; background: {{ boxBg }}; display: flex; align-items: center; justify-content: center"><sc-if value="{{ onlyMine }}" hint-placeholder-val="{{ false }}"><svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></sc-if></span>내 옷으로 완성 가능한 룩만</button>
+<button type="button" aria-haspopup="dialog" onClick="{{ openSort }}" style="display: inline-flex; align-items: center; gap: 2px; height: 44px; padding: 0; border: 0; background: transparent; color: #1A1A18; font-size: 13px; font-weight: 700">{{ sortLabel }}<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+</div>
+</header>
+
+<main style="position: absolute; left: 0; right: 0; top: 214px; bottom: 84px; overflow-y: auto; box-sizing: border-box; padding: 4px 16px 24px">
+<div style="font-size: 12px; color: #5F5E5A; margin-bottom: 10px">룩 {{count}}개 · 내 옷장 10벌과 비교</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 12px">
+<sc-for list="{{ looks }}" as="l" hint-placeholder-count="4">
+<a href="M_Fitting.dc.html" style="display: flex; flex-direction: column; gap: 6px; text-decoration: none; color: #1A1A18">
+<div style="position: relative; aspect-ratio: 4 / 5; border-radius: 8px; background: {{ l.bg }}; overflow: hidden">
+<sc-if value="{{ l.photo }}" hint-placeholder-val="{{ false }}"><img src="../assets/look.png" alt="{{ l.title }}" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block"></sc-if>
+<sc-if value="{{ l.collage }}" hint-placeholder-val="{{ true }}">
+<svg aria-hidden="true" viewBox="0 0 100 100" style="position: absolute; left: 7%; top: 7%; width: 54%; aspect-ratio: 1 / 1"><path d="M28 10 L8 24 L14 66 L26 64 L26 92 L74 92 L74 64 L86 66 L92 24 L72 10 Q50 22 28 10Z" fill="{{ l.outer }}" stroke="#A8A69F" stroke-width="1.2" stroke-linejoin="round"/></svg>
+<svg aria-hidden="true" viewBox="0 0 100 100" style="position: absolute; right: 6%; top: 12%; width: 40%; aspect-ratio: 1 / 1"><path d="M30 12 L10 26 L18 46 L30 40 L30 90 L70 90 L70 40 L82 46 L90 26 L70 12 Q50 24 30 12Z" fill="{{ l.top }}" stroke="#A8A69F" stroke-width="1.2" stroke-linejoin="round"/></svg>
+<svg aria-hidden="true" viewBox="0 0 100 100" style="position: absolute; left: 30%; top: 46%; width: 40%; aspect-ratio: 1 / 1.15"><path d="M28 6 L72 6 L78 96 L56 96 L50 34 L44 96 L22 96Z" fill="{{ l.bottom }}" stroke="#A8A69F" stroke-width="1.2" stroke-linejoin="round"/></svg>
+<svg aria-hidden="true" viewBox="0 0 100 100" style="position: absolute; right: 6%; bottom: 4%; width: 32%; aspect-ratio: 1 / 1"><path d="M6 52 L34 48 L44 58 L90 60 Q96 62 94 74 L6 74Z" fill="{{ l.shoes }}" stroke="#A8A69F" stroke-width="1.2" stroke-linejoin="round"/></svg>
+</sc-if>
+</div>
+<div style="font-size: 14px; font-weight: 700; line-height: 1.35">{{l.title}}</div>
+<div style="display: flex; justify-content: space-between; font-size: 12px"><span style="font-weight: 700">내 옷 {{l.ratio}}</span><span style="color: {{ l.gapColor }}; font-weight: {{ l.gapWeight }}">{{l.gap}}</span></div>
+<div style="height: 3px; background: #ECEBE6"><div style="width: {{ l.pct }}; height: 100%; background: {{accent}}"></div></div>
+</a>
+</sc-for>
+</div>
+</main>
+
+<nav aria-label="주 메뉴" style="position: absolute; z-index: 30; left: 0; right: 0; bottom: 0; height: 84px; box-sizing: border-box; padding-bottom: 28px; background: #FFFFFF; border-top: 1px solid #E6E5E1; display: flex">
+<a href="M_Explore.dc.html" aria-current="page" style="position: relative; flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; text-decoration: none; color: #1A1A18; font-size: 11px; font-weight: 700"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1"/><rect x="13" y="4" width="7" height="7" rx="1"/><rect x="4" y="13" width="7" height="7" rx="1"/><rect x="13" y="13" width="7" height="7" rx="1"/></svg>룩 탐색</a>
+<a href="M_Fitting.dc.html" style="position: relative; flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; text-decoration: none; color: #5F5E5A; font-size: 11px; font-weight: 500"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8a2 2 0 1 1 2-2"/><path d="M12 8v1.5L3 16.5V18h18v-1.5l-9-7"/></svg>피팅룸</a>
+<a href="#" style="position: relative; flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; text-decoration: none; color: #5F5E5A; font-size: 11px; font-weight: 500"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M12 3v18M9.5 11v2M14.5 11v2"/></svg>내 옷장</a>
+<a href="#" aria-label="쇼핑 리스트, 3벌" style="position: relative; flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; text-decoration: none; color: #5F5E5A; font-size: 11px; font-weight: 500"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>쇼핑 리스트<span style="position: absolute; top: 5px; left: calc(50% + 12px); font-size: 11px; font-weight: 700; color: {{accent}}">3</span></a>
+</nav>
+
+
+<sc-if value="{{ sortOpen }}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; z-index: 40; inset: 0; background: rgba(26, 26, 24, 0.32)">
+<button type="button" aria-label="정렬 닫기" onClick="{{ closeSort }}" style="position: absolute; inset: 0; border: 0; background: transparent"></button>
+<section role="dialog" aria-modal="true" aria-label="정렬" style="position: absolute; left: 0; right: 0; bottom: 0; box-sizing: border-box; padding: 6px 16px 40px; background: #FFFFFF; border-radius: 14px 14px 0 0">
+<div style="display: flex; justify-content: center; height: 16px; align-items: center"><span style="width: 36px; height: 5px; border-radius: 3px; background: #CFCDC6"></span></div>
+<div style="display: flex; align-items: center; justify-content: space-between; height: 44px">
+<h2 style="margin: 0; font-size: 17px; font-weight: 700">정렬</h2>
+<button type="button" onClick="{{ closeSort }}" style="height: 44px; padding: 0; border: 0; background: transparent; color: #1A1A18; font-size: 15px; font-weight: 700">완료</button>
+</div>
+<sc-for list="{{ sorts }}" as="o" hint-placeholder-count="2">
+<button type="button" role="radio" aria-checked="{{ o.on }}" onClick="{{ o.pick }}" style="width: 100%; display: flex; align-items: center; justify-content: space-between; height: 52px; padding: 0; border: 0; border-top: 1px solid #ECEBE6; background: transparent; color: #1A1A18; font-size: 15px; font-weight: {{ o.weight }}; text-align: left">{{o.label}}<sc-if value="{{ o.on }}" hint-placeholder-val="{{ false }}"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></sc-if></button>
+</sc-for>
+</section>
+</div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#2E5E4E","options":["#2E5E4E","#1F3A5F","#7A3B2E"]},"showSort":{"editor":"boolean","default":false},"$preview":{"width":390,"height":844}}'>
+const LOOKS = [
+  { title: '카모 카고 스트릿 코디', photo: true, own: 2, total: 3 },
+  { title: '베이지 트렌치 출근룩', outer: '#B49A78', top: '#2B2B29', bottom: '#2B2B29', shoes: '#4A3426', own: 4, total: 4 },
+  { title: '네이비 코트 미니멀', outer: '#1F2F4D', top: '#F2F2EE', bottom: '#8A8D92', shoes: '#2B2B29', own: 3, total: 4 },
+  { title: '그레이 후드 레이어드', outer: '#2B2B29', top: '#8A8D92', bottom: '#4A6A8F', shoes: '#F2F2EE', own: 4, total: 4 },
+  { title: '브라운 코트 캠퍼스룩', outer: '#6B4A36', top: '#F2F2EE', bottom: '#C9BFA8', shoes: '#4A3426', own: 3, total: 4 },
+  { title: '카키 필드 재킷', outer: '#5B6148', top: '#2B2B29', bottom: '#4A6A8F', shoes: '#F2F2EE', own: 3, total: 4 },
+  { title: '차콜 롱코트 다크톤', outer: '#3E4044', top: '#2B2B29', bottom: '#2B2B29', shoes: '#2B2B29', own: 2, total: 4 },
+  { title: '데님 온 데님', outer: '#4A6A8F', top: '#EFE9DC', bottom: '#4A6A8F', shoes: '#4A6A8F', own: 1, total: 4 }
+];
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { onlyMine: false, sort: 'reco', sortOpen: !!this.props.showSort };
+  }
+  renderVals() {
+    const s = this.state;
+    const accent = this.props.accent ?? '#2E5E4E';
+    let list = LOOKS.map((l, i) => Object.assign({ i: i }, l));
+    if (s.onlyMine) list = list.filter((l) => l.own === l.total);
+    if (s.sort === 'match') list = list.slice().sort((a, b) => (b.own / b.total) - (a.own / a.total) || a.i - b.i);
+    const looks = list.map((l) => {
+      const miss = l.total - l.own;
+      return {
+        title: l.title, photo: !!l.photo, collage: !l.photo, bg: l.photo ? '#E9EDF0' : '#F0EFEB',
+        outer: l.outer || '#FFFFFF', top: l.top || '#FFFFFF', bottom: l.bottom || '#FFFFFF', shoes: l.shoes || '#FFFFFF',
+        ratio: l.own + '/' + l.total, pct: Math.round((l.own / l.total) * 100) + '%',
+        gap: miss === 0 ? '완성' : miss + '벌 부족', gapColor: miss === 0 ? accent : '#5F5E5A', gapWeight: miss === 0 ? '700' : '400'
+      };
+    });
+    const defs = [{ id: 'reco', label: '추천순' }, { id: 'match', label: '내 옷 많은 순' }];
+    return {
+      accent: accent, looks: looks, count: looks.length,
+      onlyMine: s.onlyMine, toggleMine: () => this.setState({ onlyMine: !s.onlyMine }),
+      boxBg: s.onlyMine ? accent : '#FFFFFF', boxLine: s.onlyMine ? accent : '#5F5E5A',
+      sortLabel: defs.find((d) => d.id === s.sort).label,
+      sortOpen: s.sortOpen, openSort: () => this.setState({ sortOpen: true }), closeSort: () => this.setState({ sortOpen: false }),
+      sorts: defs.map((d) => ({ label: d.label, on: s.sort === d.id, weight: s.sort === d.id ? '700' : '400', pick: () => this.setState({ sort: d.id, sortOpen: false }) }))
+    };
+  }
+}
+</script>
+</body>
+</html>

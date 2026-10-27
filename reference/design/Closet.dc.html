@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>내 옷장</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+:focus-visible{outline:2px solid #1A1A18;outline-offset:2px}
+button{cursor:pointer;font-family:inherit}
+a{color:inherit}
+</style>
+</helmet>
+<div style="min-height: 900px; box-sizing: border-box; background: #FFFFFF; color: #1A1A18; font-family: 'Noto Sans KR', sans-serif; font-size: 14px; display: flex; flex-direction: column">
+
+<header style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; padding: 14px 32px; border-bottom: 1px solid #E6E5E1; background: #FFFFFF">
+<a href="Landing.dc.html" style="font-size: 18px; font-weight: 700; letter-spacing: 0.02em; text-decoration: none; color: #1A1A18">Closet / Look</a>
+<a href="Search.dc.html" style="flex: 1 1 280px; max-width: 560px; display: flex; align-items: center; gap: 10px; height: 44px; box-sizing: border-box; padding: 0 16px; border: 1px solid #8A8880; border-radius: 22px; color: #5F5E5A; text-decoration: none; font-size: 15px">
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5F5E5A" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>룩 검색 · 예: 가을 남자 코트 코디</a>
+<nav aria-label="주 메뉴" style="display: flex; flex-wrap: wrap; gap: 4px 20px; margin-left: auto; font-size: 14px">
+<a href="Explore.dc.html" style="display: inline-flex; align-items: center; height: 44px; text-decoration: none; color: #5F5E5A; font-weight: 500">룩 탐색</a>
+<a href="Main.dc.html" style="display: inline-flex; align-items: center; height: 44px; text-decoration: none; color: #5F5E5A; font-weight: 500">피팅룸</a>
+<a href="Closet.dc.html" aria-current="page" style="display: inline-flex; align-items: center; height: 44px; text-decoration: none; color: #1A1A18; font-weight: 700; box-shadow: inset 0 -2px 0 #1A1A18">내 옷장</a>
+<a href="Shopping.dc.html" aria-label="쇼핑 리스트, 3벌" style="display: inline-flex; align-items: center; gap: 6px; height: 44px; text-decoration: none; color: #5F5E5A; font-weight: 500">쇼핑 리스트<span style="font-weight: 700; color: #1A1A18">3</span></a>
+</nav>
+<a href="Register.dc.html" style="display: inline-flex; align-items: center; gap: 6px; height: 44px; padding: 0 18px; border-radius: 22px; background: #1A1A18; color: #FFFFFF; font-size: 14px; font-weight: 700; text-decoration: none"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>옷 등록</a>
+</header>
+
+<main style="width: 100%; max-width: 1280px; margin: 0 auto; box-sizing: border-box; padding: 32px; display: flex; flex-direction: column; gap: 24px">
+
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px">
+<div>
+<h1 style="margin: 0; font-size: 26px; font-weight: 700">내 옷장</h1>
+<div style="margin-top: 4px; font-size: 14px; color: #5F5E5A">가진 옷과, 그 옷으로 만든 코디를 모아 둬요.</div>
+</div>
+<div role="tablist" aria-label="옷장 보기" style="display: inline-flex; gap: 24px">
+<sc-for list="{{ tabs }}" as="t" hint-placeholder-count="2">
+<button type="button" role="tab" aria-selected="{{ t.on }}" onClick="{{ t.pick }}" style="height: 44px; padding: 0 2px; border: 0; background: transparent; color: {{ t.fg }}; font-size: 15px; font-weight: {{ t.weight }}; box-shadow: inset 0 -2px 0 {{ t.line }}; white-space: nowrap">{{t.label}} <span style="font-weight: 500; color: #5F5E5A">{{t.count}}</span></button>
+</sc-for>
+</div>
+</div>
+
+<!-- 옷 -->
+<sc-if value="{{ isItems }}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px">
+<div role="group" aria-label="옷 종류" style="display: flex; flex-wrap: wrap; gap: 0 24px">
+<sc-for list="{{ cats }}" as="c" hint-placeholder-count="5">
+<button type="button" aria-pressed="{{ c.on }}" onClick="{{ c.pick }}" style="height: 44px; padding: 0 2px; border: 0; background: transparent; color: {{ c.fg }}; font-size: 14px; font-weight: {{ c.weight }}; box-shadow: inset 0 -2px 0 {{ c.line }}; white-space: nowrap">{{c.label}} <span style="font-weight: 500; color: #5F5E5A">{{c.count}}</span></button>
+</sc-for>
+</div>
+<div style="font-size: 13px; color: #5F5E5A">코디에 많이 쓰인 순</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 24px 16px">
+<sc-for list="{{ items }}" as="t" hint-placeholder-count="10">
+<a href="Main.dc.html" style="display: flex; flex-direction: column; gap: 8px; text-decoration: none; color: #1A1A18">
+<span style="aspect-ratio: 1 / 1; border-radius: 10px; background: #F0EFEB; display: flex; align-items: center; justify-content: center; overflow: hidden">
+<sc-if value="{{ t.hasImg }}" hint-placeholder-val="{{ false }}"><img src="{{ t.src }}" alt="" style="width: 100%; height: 100%; object-fit: contain; padding: 10%; box-sizing: border-box"></sc-if>
+<sc-if value="{{ t.noImg }}" hint-placeholder-val="{{ true }}"><svg aria-hidden="true" width="58%" height="58%" viewBox="0 0 100 100"><path d="{{ t.path }}" fill="{{ t.color }}" stroke="#BDBBB4" stroke-width="1.5" stroke-linejoin="round"/></svg></sc-if>
+</span>
+<span>
+<span style="display: block; font-size: 14px; font-weight: 700">{{t.name}}</span>
+<span style="display: block; margin-top: 2px; font-size: 12px; color: #5F5E5A">{{t.usage}}</span>
+</span>
+</a>
+</sc-for>
+</div>
+</sc-if>
+
+<!-- 코디 -->
+<sc-if value="{{ isCodis }}" hint-placeholder-val="{{ true }}">
+<div style="font-size: 14px; color: #3D3C38">피팅룸에서 입혀 보고 저장한 조합이에요. 쇼핑몰 상품이 섞인 코디는 산 뒤에 완성돼요.</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 24px">
+
+<a href="Main.dc.html" style="min-height: 360px; box-sizing: border-box; border: 1px dashed #BDBBB4; border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; text-decoration: none; color: #1A1A18">
+<span style="display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1A1A18" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+<span style="font-size: 15px; font-weight: 700">새 코디 만들기</span>
+<span style="font-size: 13px; color: #5F5E5A">피팅룸에서 입혀 보고 저장해요</span>
+</a>
+
+<sc-for list="{{ codis }}" as="c" hint-placeholder-count="4">
+<article style="box-sizing: border-box; padding: 14px; border: 1px solid #E6E5E1; border-radius: 12px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px">
+<sc-for list="{{ c.tiles }}" as="t" hint-placeholder-count="4">
+<span style="position: relative; aspect-ratio: 1 / 1; border-radius: 8px; background: #F0EFEB; display: flex; align-items: center; justify-content: center; overflow: hidden">
+<sc-if value="{{ t.hasImg }}" hint-placeholder-val="{{ false }}"><img src="{{ t.src }}" alt="{{ t.name }}" style="width: 100%; height: 100%; object-fit: contain; padding: 10%; box-sizing: border-box"></sc-if>
+<sc-if value="{{ t.noImg }}" hint-placeholder-val="{{ true }}"><svg role="img" aria-label="{{ t.name }}" width="58%" height="58%" viewBox="0 0 100 100"><path d="{{ t.path }}" fill="{{ t.color }}" stroke="#BDBBB4" stroke-width="1.5" stroke-linejoin="round"/></svg></sc-if>
+<sc-if value="{{ t.shop }}" hint-placeholder-val="{{ false }}"><span style="position: absolute; left: 0; top: 0; padding: 4px 7px; border-radius: 8px 0 6px 0; background: #FFFFFF; color: {{accent}}; font-size: 11px; font-weight: 700">쇼핑몰 상품</span></sc-if>
+</span>
+</sc-for>
+</div>
+<div>
+<h2 style="margin: 0; font-size: 15px; font-weight: 700">{{c.title}}</h2>
+<div style="margin-top: 2px; font-size: 12px; color: {{ c.metaColor }}; font-weight: {{ c.metaWeight }}">{{c.meta}}</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 0 20px">
+<a href="Main.dc.html" style="display: inline-flex; align-items: center; gap: 6px; height: 44px; padding: 0; border: 0; background: transparent; color: #1A1A18; font-size: 14px; font-weight: 500; text-decoration: none"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8a2 2 0 1 1 2-2"/><path d="M12 8v1.5L3 16.5V18h18v-1.5l-9-7"/></svg>피팅룸에서 열기</a>
+<sc-if value="{{ c.needsBuy }}" hint-placeholder-val="{{ false }}">
+<a href="Shopping.dc.html" style="display: inline-flex; align-items: center; gap: 6px; height: 44px; padding: 0; border: 0; background: transparent; color: {{accent}}; font-size: 14px; font-weight: 700; text-decoration: none">쇼핑 리스트 보기<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+</sc-if>
+</div>
+</article>
+</sc-for>
+</div>
+</sc-if>
+
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#2E5E4E","options":["#2E5E4E","#1F3A5F","#7A3B2E"]},"startTab":{"editor":"enum","default":"코디","options":["옷","코디"]},"$preview":{"width":1440,"height":1060}}'>
+const SH = {
+  outer: 'M28 10 L8 24 L14 66 L26 64 L26 92 L74 92 L74 64 L86 66 L92 24 L72 10 Q50 22 28 10Z',
+  top: 'M30 12 L10 26 L18 46 L30 40 L30 90 L70 90 L70 40 L82 46 L90 26 L70 12 Q50 24 30 12Z',
+  bottom: 'M28 6 L72 6 L78 96 L56 96 L50 34 L44 96 L22 96Z',
+  shoes: 'M6 52 L34 48 L44 58 L90 60 Q96 62 94 74 L6 74Z'
+};
+const CAT = { outer: '아우터', top: '상의', bottom: '하의', shoes: '신발' };
+const ITEMS = {
+  o_jacket: { name: '블랙 푸퍼 자켓', slot: 'outer', img: '../assets/jacket.png' },
+  o_trench: { name: '롱 트렌치 코트', slot: 'outer', color: '#B49A78' },
+  o_tee: { name: '화이트 롱슬리브 티', slot: 'top', img: '../assets/tee.png' },
+  o_hood: { name: '그레이 후드', slot: 'top', color: '#8A8D92' },
+  o_knit: { name: '블랙 니트', slot: 'top', color: '#2B2B29' },
+  o_denim: { name: '데님 팬츠', slot: 'bottom', color: '#4A6A8F' },
+  o_slacks: { name: '블랙 슬랙스', slot: 'bottom', color: '#2B2B29' },
+  o_chino: { name: '와이드 치노 팬츠', slot: 'bottom', color: '#C9BFA8' },
+  o_sneak: { name: '화이트 스니커즈', slot: 'shoes', color: '#F2F2EE' },
+  o_chelsea: { name: '첼시 부츠', slot: 'shoes', color: '#4A3426' },
+  s_pants: { name: '카모 와이드 카고 팬츠', slot: 'bottom', img: '../assets/pants.png', shop: true }
+};
+const OWNED = ['o_jacket', 'o_trench', 'o_tee', 'o_hood', 'o_knit', 'o_denim', 'o_slacks', 'o_chino', 'o_sneak', 'o_chelsea'];
+const CODIS = [
+  { title: '카모 카고 스트릿', ids: ['o_jacket', 'o_tee', 's_pants', 'o_sneak'] },
+  { title: '데님 데일리', ids: ['o_jacket', 'o_tee', 'o_denim', 'o_sneak'] },
+  { title: '트렌치 출근', ids: ['o_trench', 'o_knit', 'o_slacks', 'o_chelsea'] },
+  { title: '후드 주말', ids: ['o_trench', 'o_hood', 'o_chino', 'o_sneak'] }
+];
+
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { tab: null, cat: 'all' };
+  }
+  tile(id) {
+    const it = ITEMS[id];
+    return { name: it.name, hasImg: !!it.img, noImg: !it.img, src: it.img || '', path: SH[it.slot], color: it.color || '#FFFFFF', shop: !!it.shop };
+  }
+  renderVals() {
+    const s = this.state;
+    const accent = this.props.accent ?? '#2E5E4E';
+    const tab = s.tab || this.props.startTab || '코디';
+    const usage = {};
+    CODIS.forEach((c) => c.ids.forEach((id) => { usage[id] = (usage[id] || 0) + 1; }));
+    const catKeys = ['all', 'outer', 'top', 'bottom', 'shoes'];
+    const cats = catKeys.map((k) => {
+      const on = s.cat === k;
+      const n = k === 'all' ? OWNED.length : OWNED.filter((id) => ITEMS[id].slot === k).length;
+      return { label: k === 'all' ? '전체' : CAT[k], count: n, on: on, line: on ? '#1A1A18' : 'transparent', fg: on ? '#1A1A18' : '#5F5E5A', weight: on ? '700' : '500', pick: () => this.setState({ cat: k }) };
+    });
+    const items = OWNED.filter((id) => s.cat === 'all' || ITEMS[id].slot === s.cat)
+      .slice().sort((a, b) => (usage[b] || 0) - (usage[a] || 0))
+      .map((id) => Object.assign(this.tile(id), { usage: usage[id] ? '코디 ' + usage[id] + '개에 쓰임' : '아직 코디에 안 쓰였어요' }));
+    const codis = CODIS.map((c) => {
+      const shopN = c.ids.filter((id) => ITEMS[id].shop).length;
+      return {
+        title: c.title, tiles: c.ids.map((id) => this.tile(id)),
+        meta: shopN ? '쇼핑몰 상품 ' + shopN + '벌 포함 · 사면 완성' : '전부 내 옷 · 지금 입을 수 있어요',
+        metaColor: shopN ? '#3D3C38' : accent, metaWeight: '700', needsBuy: shopN > 0
+      };
+    });
+    const tabDefs = [{ id: '옷', count: OWNED.length }, { id: '코디', count: CODIS.length }];
+    return {
+      accent: accent,
+      isItems: tab === '옷', isCodis: tab === '코디',
+      tabs: tabDefs.map((t) => ({
+        label: t.id, count: t.count, on: tab === t.id,
+        line: tab === t.id ? '#1A1A18' : 'transparent', fg: tab === t.id ? '#1A1A18' : '#3D3C38', weight: tab === t.id ? '700' : '500',
+        pick: () => this.setState({ tab: t.id })
+      })),
+      cats: cats, items: items, codis: codis
+    };
+  }
+}
+</script>
+</body>
+</html>
