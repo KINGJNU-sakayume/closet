@@ -1,10 +1,11 @@
 import { assetUrl } from '../domain/looks';
-import { seedGarments, seedOutfits, seedShopping } from '../domain/seed';
+import { seedGarments, seedOutfits, seedShopping, seedWorn } from '../domain/seed';
 import type { Garment } from '../domain/types';
 import type { ClosetDB } from './db';
 
 const SEEDED = 'seeded';
-const createdAt = '2026-10-01T00:00:00.000Z';
+/** 예시 데이터 순서대로 보이도록 1초씩 차이를 둔다 */
+const at = (i: number) => new Date(Date.UTC(2026, 9, 1) + i * 1000).toISOString();
 
 type FetchBlob = (path: string) => Promise<Blob | undefined>;
 
@@ -13,24 +14,27 @@ const fetchAsset: FetchBlob = async (path) => {
   return res.ok ? res.blob() : undefined;
 };
 
+export const WORN = 'worn';
+
 async function clear(db: ClosetDB) {
-  await Promise.all([db.garments.clear(), db.outfits.clear(), db.shopping.clear(), db.overrides.clear()]);
+  await Promise.all([db.garments.clear(), db.outfits.clear(), db.shopping.clear(), db.overrides.clear(), db.meta.delete(WORN)]);
 }
 
 /** 예시 데이터를 넣는다. 예시 옷 사진은 Blob으로 바꿔 내 옷과 같은 방식으로 저장한다. */
 export async function seed(db: ClosetDB, fetchBlob: FetchBlob = fetchAsset) {
   const garments: Garment[] = await Promise.all(
-    seedGarments.map(async ({ image, ...g }) => ({
+    seedGarments.map(async ({ image, ...g }, i) => ({
       ...g,
-      createdAt,
+      createdAt: at(i),
       ...(image ? { cutout: await fetchBlob(image) } : {}),
     })),
   );
   await db.transaction('rw', [db.garments, db.outfits, db.shopping, db.overrides, db.meta], async () => {
     await clear(db);
     await db.garments.bulkAdd(garments);
-    await db.outfits.bulkAdd(seedOutfits);
+    await db.outfits.bulkAdd(seedOutfits.map((o, i) => ({ ...o, createdAt: at(i) })));
     await db.shopping.bulkAdd(seedShopping);
+    await db.meta.put({ key: WORN, value: JSON.stringify(seedWorn) });
     await db.meta.put({ key: SEEDED, value: new Date().toISOString() });
   });
 }

@@ -57,6 +57,11 @@ test.describe('옷 등록', () => {
 
     await page.getByRole('link', { name: '피팅룸에서 입혀보기' }).click();
     await expect(page).toHaveURL(/\/fitting$/);
+    // 피팅룸 옷장에 사진으로 보인다(예시 티 + 새로 등록한 티)
+    const tees = page.getByRole('complementary', { name: '내 옷장' }).getByRole('button', { name: /^화이트 롱슬리브 티/ });
+    await expect(tees).toHaveCount(2);
+    await expect(tees.nth(1).locator('img')).toBeVisible();
+    await expect(page.getByText('11벌')).toBeVisible();
   });
 
   test('상품 링크: 주소만 저장하고 사진 없이 등록', async ({ page }) => {
