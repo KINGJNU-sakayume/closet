@@ -1,0 +1,94 @@
+{
+  "id": "l_hood",
+  "title": "그레이 후드 레이어드",
+  "source": "[출처]",
+  "photo": null,
+  "tags": [
+    "가을",
+    "겨울",
+    "남자",
+    "패딩",
+    "캠퍼스"
+  ],
+  "items": [
+    {
+      "id": "p_puffer2",
+      "title": "블랙 패딩 점퍼",
+      "alias": "블랙 패딩 점퍼",
+      "shop": "[쇼핑몰]",
+      "url": null,
+      "price": null,
+      "image": null,
+      "colorHex": "#2B2B29",
+      "attrs": {
+        "category": "outer",
+        "colorFamily": "블랙",
+        "seasons": [
+          "winter"
+        ],
+        "fit": "regular",
+        "length": "cropped"
+      }
+    },
+    {
+      "id": "p_hood",
+      "title": "그레이 후드",
+      "alias": "그레이 후드",
+      "shop": "[쇼핑몰]",
+      "url": null,
+      "price": null,
+      "image": null,
+      "colorHex": "#8A8D92",
+      "attrs": {
+        "category": "top",
+        "colorFamily": "그레이",
+        "seasons": [
+          "spring_fall",
+          "winter"
+        ],
+        "fit": "oversized",
+        "length": "regular"
+      }
+    },
+    {
+      "id": "p_denim",
+      "title": "데님 팬츠",
+      "alias": "데님 팬츠",
+      "shop": "[쇼핑몰]",
+      "url": null,
+      "price": null,
+      "image": null,
+      "colorHex": "#4A6A8F",
+      "attrs": {
+        "category": "bottom",
+        "colorFamily": "블루",
+        "seasons": [
+          "spring_fall",
+          "summer",
+          "winter"
+        ],
+        "fit": "regular",
+        "length": "long"
+      }
+    },
+    {
+      "id": "p_sneak2",
+      "title": "화이트 스니커즈",
+      "alias": "화이트 스니커즈",
+      "shop": "[쇼핑몰]",
+      "url": null,
+      "price": null,
+      "image": null,
+      "colorHex": "#F4F3EF",
+      "attrs": {
+        "category": "shoes",
+        "colorFamily": "화이트",
+        "seasons": [
+          "spring_fall",
+          "summer",
+          "winter"
+        ]
+      }
+    }
+  ]
+}

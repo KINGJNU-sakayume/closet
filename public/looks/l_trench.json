@@ -1,0 +1,92 @@
+{
+  "id": "l_trench",
+  "title": "베이지 트렌치 출근룩",
+  "source": "[출처]",
+  "photo": null,
+  "tags": [
+    "가을",
+    "남자",
+    "코트",
+    "출근"
+  ],
+  "items": [
+    {
+      "id": "p_trench",
+      "title": "베이지 트렌치 코트",
+      "alias": "베이지 트렌치 코트",
+      "shop": "[쇼핑몰]",
+      "url": null,
+      "price": null,
+      "image": null,
+      "colorHex": "#B49A78",
+      "attrs": {
+        "category": "outer",
+        "colorFamily": "베이지",
+        "seasons": [
+          "spring_fall"
+        ],
+        "fit": "regular",
+        "length": "long"
+      }
+    },
+    {
+      "id": "p_knit",
+      "title": "블랙 니트",
+      "alias": "블랙 니트",
+      "shop": "[쇼핑몰]",
+      "url": null,
+      "price": null,
+      "image": null,
+      "colorHex": "#2B2B29",
+      "attrs": {
+        "category": "top",
+        "colorFamily": "블랙",
+        "seasons": [
+          "spring_fall",
+          "winter"
+        ],
+        "fit": "regular",
+        "length": "regular"
+      }
+    },
+    {
+      "id": "p_slacks",
+      "title": "블랙 슬랙스",
+      "alias": "블랙 슬랙스",
+      "shop": "[쇼핑몰]",
+      "url": null,
+      "price": null,
+      "image": null,
+      "colorHex": "#2B2B29",
+      "attrs": {
+        "category": "bottom",
+        "colorFamily": "블랙",
+        "seasons": [
+          "spring_fall",
+          "summer",
+          "winter"
+        ],
+        "fit": "slim",
+        "length": "long"
+      }
+    },
+    {
+      "id": "p_chelsea",
+      "title": "브라운 첼시 부츠",
+      "alias": "브라운 첼시 부츠",
+      "shop": "[쇼핑몰]",
+      "url": null,
+      "price": null,
+      "image": null,
+      "colorHex": "#4A3426",
+      "attrs": {
+        "category": "shoes",
+        "colorFamily": "브라운",
+        "seasons": [
+          "spring_fall",
+          "winter"
+        ]
+      }
+    }
+  ]
+}

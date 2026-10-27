@@ -1,0 +1,92 @@
+{
+  "id": "l_denim",
+  "title": "데님 온 데님",
+  "source": "[출처]",
+  "photo": null,
+  "tags": [
+    "가을",
+    "남자",
+    "재킷",
+    "여행"
+  ],
+  "items": [
+    {
+      "id": "p_djacket",
+      "title": "데님 재킷",
+      "alias": "데님 재킷",
+      "shop": "[쇼핑몰]",
+      "url": null,
+      "price": null,
+      "image": null,
+      "colorHex": "#4A6A8F",
+      "attrs": {
+        "category": "outer",
+        "colorFamily": "블루",
+        "seasons": [
+          "spring_fall"
+        ],
+        "fit": "regular",
+        "length": "regular"
+      }
+    },
+    {
+      "id": "p_ivory",
+      "title": "아이보리 크롭 티",
+      "alias": "아이보리 크롭 티",
+      "shop": "[쇼핑몰]",
+      "url": null,
+      "price": null,
+      "image": null,
+      "colorHex": "#EFE9DC",
+      "attrs": {
+        "category": "top",
+        "colorFamily": "아이보리",
+        "seasons": [
+          "summer"
+        ],
+        "fit": "slim",
+        "length": "cropped"
+      }
+    },
+    {
+      "id": "p_denim3",
+      "title": "데님 팬츠",
+      "alias": "데님 팬츠",
+      "shop": "[쇼핑몰]",
+      "url": null,
+      "price": null,
+      "image": null,
+      "colorHex": "#4A6A8F",
+      "attrs": {
+        "category": "bottom",
+        "colorFamily": "블루",
+        "seasons": [
+          "spring_fall",
+          "summer",
+          "winter"
+        ],
+        "fit": "regular",
+        "length": "long"
+      }
+    },
+    {
+      "id": "p_canvas",
+      "title": "블루 캔버스 스니커즈",
+      "alias": "블루 캔버스 스니커즈",
+      "shop": "[쇼핑몰]",
+      "url": null,
+      "price": null,
+      "image": null,
+      "colorHex": "#4A6A8F",
+      "attrs": {
+        "category": "shoes",
+        "colorFamily": "블루",
+        "seasons": [
+          "spring_fall",
+          "summer",
+          "winter"
+        ]
+      }
+    }
+  ]
+}

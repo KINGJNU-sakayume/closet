@@ -10,7 +10,13 @@ npm run e2e        # Playwright (스크린샷: e2e/screens/)
 npm run build
 ```
 
-개발용 컴포넌트 모음: `/dev/components`
+개발용 컴포넌트 모음과 예시 데이터 판정 결과: `/dev/components`
+
+## 데이터
+
+- 첫 실행 때 `src/data/seed.json`(옷·코디·쇼핑 리스트)을 IndexedDB에 넣습니다. 룩은 `public/looks/*.json`(순서는 `index.json`).
+- 개발용: 주소 뒤에 `?reset=1`이면 예시 데이터를 다시 넣고, `?empty=1`이면 비웁니다.
+- 판정 규칙: `src/domain/matching.ts`, 점수·기준값: `src/domain/matching.config.ts`, 테스트: `src/domain/matching.test.ts`.
 
 ## 배포 (GitHub Pages)
 

@@ -32,6 +32,8 @@ test.describe('desktop header', () => {
 
   test('Tab 키 포커스가 보인다', async ({ page }) => {
     await page.goto('/explore');
+    // 저장소 준비가 끝난 뒤 화면이 그려진다
+    await expect(page.getByRole('link', { name: 'Closet / Look' })).toBeVisible();
     await page.keyboard.press('Tab');
     const outline = await page.evaluate(() => getComputedStyle(document.activeElement!).outlineStyle);
     expect(outline).toBe('solid');
@@ -55,5 +57,24 @@ test.describe('mobile', () => {
     }
     await page.goto('/register');
     await expect(page.getByText('1 / 3')).toBeVisible();
+  });
+});
+
+test.describe('data', () => {
+  test.use({ viewport: viewports.d });
+  test('첫 실행 예시 데이터, ?empty=1, ?reset=1', async ({ page }) => {
+    await page.goto('/dev/components');
+    await expect(page.getByText('예시 데이터 · 내 옷 10벌 · 코디 4개')).toBeVisible();
+    await expect(page.getByRole('link', { name: '쇼핑 리스트, 2벌' })).toBeVisible();
+
+    await page.goto('/dev/components?empty=1');
+    await expect(page.getByRole('link', { name: '쇼핑 리스트, 0벌' })).toBeVisible();
+    await expect(page).toHaveURL(/\/dev\/components$/);
+    await page.reload();
+    await expect(page.getByText('예시 데이터 · 내 옷 0벌 · 코디 0개')).toBeVisible();
+
+    await page.goto('/dev/components?reset=1');
+    await expect(page.getByText('예시 데이터 · 내 옷 10벌 · 코디 4개')).toBeVisible();
+    await expect(page.getByRole('link', { name: '쇼핑 리스트, 2벌' })).toBeVisible();
   });
 });

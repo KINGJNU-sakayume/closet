@@ -1,0 +1,75 @@
+{
+  "id": "l_camo",
+  "title": "카모 카고 스트릿 코디",
+  "source": "무신사 · 예시 사진",
+  "photo": "assets/look.png",
+  "tags": [
+    "가을",
+    "겨울",
+    "남자",
+    "패딩",
+    "스트릿",
+    "캠퍼스"
+  ],
+  "items": [
+    {
+      "id": "p_puffer",
+      "title": "[수빈 착용]씨빅 RDS 숏 푸퍼 Black",
+      "alias": "블랙 숏 패딩 점퍼",
+      "shop": "무신사",
+      "url": "https://www.musinsa.com",
+      "price": null,
+      "image": "assets/jacket.png",
+      "colorHex": "#2B2B29",
+      "attrs": {
+        "category": "outer",
+        "colorFamily": "블랙",
+        "seasons": [
+          "winter"
+        ],
+        "fit": "oversized",
+        "length": "cropped"
+      }
+    },
+    {
+      "id": "p_lmc_tee",
+      "title": "FN DOODLE LONG SLV TEE white",
+      "alias": "화이트 롱슬리브 티",
+      "shop": "무신사",
+      "url": "https://www.musinsa.com",
+      "price": null,
+      "image": "assets/tee.png",
+      "colorHex": "#F2F2EE",
+      "attrs": {
+        "category": "top",
+        "colorFamily": "화이트",
+        "seasons": [
+          "spring_fall",
+          "winter"
+        ],
+        "fit": "oversized",
+        "length": "regular"
+      }
+    },
+    {
+      "id": "p_camo",
+      "title": "카모 와이드 카고 팬츠",
+      "alias": "카모 와이드 카고 팬츠",
+      "shop": "무신사",
+      "url": "https://www.musinsa.com",
+      "price": null,
+      "image": "assets/pants.png",
+      "colorHex": "#4A5058",
+      "attrs": {
+        "category": "bottom",
+        "colorFamily": "카모",
+        "seasons": [
+          "spring_fall",
+          "winter"
+        ],
+        "fit": "wide",
+        "length": "long"
+      }
+    }
+  ]
+}
