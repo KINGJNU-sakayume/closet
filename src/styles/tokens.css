@@ -1,0 +1,64 @@
+/* 디자인 토큰. 색·글자·간격·모서리는 이 변수만 쓴다. */
+:root {
+  --bg: #FFFFFF;
+  --bg-subtle: #FAFAF8;
+  --stage: #F7F6F3;
+  --tile: #F0EFEB;
+  --line: #E6E5E1;
+  --line-input: #8A8880;
+  --text: #1A1A18;
+  --text-2: #3D3C38;
+  --muted: #5F5E5A;
+  --accent: #2E5E4E;
+  --on-dark: #FFFFFF;
+  --scrim: rgba(26, 26, 24, 0.32);
+
+  --font: 'Noto Sans KR', system-ui, sans-serif;
+  --fs-11: 11px; /* 아바타 위 설명, 탭 바 라벨만 */
+  --fs-12: 12px;
+  --fs-13: 13px;
+  --fs-14: 14px;
+  --fs-15: 15px;
+  --fs-input-m: 16px; /* 모바일 입력칸(iOS 확대 방지) */
+  --fs-18: 18px;
+  --fs-22: 22px;
+  --fs-26: 26px;
+  --fs-hero-m: 32px; /* 모바일 랜딩 히어로 */
+  --fs-46: 46px;
+
+  --sp-4: 4px;
+  --sp-8: 8px;
+  --sp-12: 12px;
+  --sp-16: 16px;
+  --sp-20: 20px;
+  --sp-24: 24px;
+  --sp-32: 32px;
+  --gutter: 32px;
+
+  --r-tile: 8px;
+  --r-button: 6px;
+  --r-sheet: 14px;
+  --r-search: 22px;
+  --r-panel: 16px;
+
+  --hit: 44px;
+  --header-h: 72px;
+  --search-max: 560px;
+  --button-h: 48px;
+  --topbar-h: 52px;
+  --tabbar-h: 56px;
+  --checkbox: 18px;
+  --progress-h: 4px;
+  --underline: 2px;
+
+  --w-landing: 1240px;
+  --w-wide: 1280px;
+  --w-narrow: 1040px;
+}
+
+@media (max-width: 767.98px) {
+  :root {
+    --gutter: 16px;
+    --button-h: 52px;
+  }
+}
