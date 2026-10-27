@@ -23,4 +23,4 @@ export const router = createBrowserRouter([
       { path: '/dev/components', element: <DevComponents />, handle: h({ title: '공통 컴포넌트' }) },
     ],
   },
-]);
+], { basename: import.meta.env.BASE_URL.replace(/\/$/, '') || '/' });
