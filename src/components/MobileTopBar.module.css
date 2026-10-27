@@ -52,6 +52,9 @@
 
 .cancel {
   width: 64px;
+  padding: 0;
+  border: 0;
+  background: transparent;
   height: var(--hit);
   display: flex;
   align-items: center;
