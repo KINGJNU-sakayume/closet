@@ -1,0 +1,94 @@
+{
+  "id": "l_navy",
+  "title": "네이비 코트 미니멀",
+  "source": "[출처]",
+  "photo": null,
+  "tags": [
+    "가을",
+    "겨울",
+    "남자",
+    "코트",
+    "데이트"
+  ],
+  "items": [
+    {
+      "id": "p_navy",
+      "title": "네이비 울 코트",
+      "alias": "네이비 울 코트",
+      "shop": "[쇼핑몰]",
+      "url": null,
+      "price": null,
+      "image": null,
+      "colorHex": "#1F2F4D",
+      "attrs": {
+        "category": "outer",
+        "colorFamily": "네이비",
+        "seasons": [
+          "winter"
+        ],
+        "fit": "regular",
+        "length": "long"
+      }
+    },
+    {
+      "id": "p_wknit",
+      "title": "화이트 니트",
+      "alias": "화이트 니트",
+      "shop": "[쇼핑몰]",
+      "url": null,
+      "price": null,
+      "image": null,
+      "colorHex": "#F2F2EE",
+      "attrs": {
+        "category": "top",
+        "colorFamily": "화이트",
+        "seasons": [
+          "spring_fall",
+          "winter"
+        ],
+        "fit": "regular",
+        "length": "regular"
+      }
+    },
+    {
+      "id": "p_slacks2",
+      "title": "블랙 슬랙스",
+      "alias": "블랙 슬랙스",
+      "shop": "[쇼핑몰]",
+      "url": null,
+      "price": null,
+      "image": null,
+      "colorHex": "#2B2B29",
+      "attrs": {
+        "category": "bottom",
+        "colorFamily": "블랙",
+        "seasons": [
+          "spring_fall",
+          "summer",
+          "winter"
+        ],
+        "fit": "slim",
+        "length": "long"
+      }
+    },
+    {
+      "id": "p_sneak",
+      "title": "화이트 스니커즈",
+      "alias": "화이트 스니커즈",
+      "shop": "[쇼핑몰]",
+      "url": null,
+      "price": null,
+      "image": null,
+      "colorHex": "#F4F3EF",
+      "attrs": {
+        "category": "shoes",
+        "colorFamily": "화이트",
+        "seasons": [
+          "spring_fall",
+          "summer",
+          "winter"
+        ]
+      }
+    }
+  ]
+}

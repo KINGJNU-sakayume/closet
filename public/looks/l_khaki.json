@@ -1,0 +1,92 @@
+{
+  "id": "l_khaki",
+  "title": "카키 필드 재킷",
+  "source": "[출처]",
+  "photo": null,
+  "tags": [
+    "가을",
+    "남자",
+    "재킷",
+    "여행"
+  ],
+  "items": [
+    {
+      "id": "p_khaki",
+      "title": "카키 필드 재킷",
+      "alias": "카키 필드 재킷",
+      "shop": "[쇼핑몰]",
+      "url": null,
+      "price": null,
+      "image": null,
+      "colorHex": "#5B6148",
+      "attrs": {
+        "category": "outer",
+        "colorFamily": "카키",
+        "seasons": [
+          "spring_fall"
+        ],
+        "fit": "regular",
+        "length": "regular"
+      }
+    },
+    {
+      "id": "p_btee",
+      "title": "블랙 티",
+      "alias": "블랙 티",
+      "shop": "[쇼핑몰]",
+      "url": null,
+      "price": null,
+      "image": null,
+      "colorHex": "#2B2B29",
+      "attrs": {
+        "category": "top",
+        "colorFamily": "블랙",
+        "seasons": [
+          "spring_fall"
+        ],
+        "fit": "regular",
+        "length": "regular"
+      }
+    },
+    {
+      "id": "p_denim2",
+      "title": "데님 팬츠",
+      "alias": "데님 팬츠",
+      "shop": "[쇼핑몰]",
+      "url": null,
+      "price": null,
+      "image": null,
+      "colorHex": "#4A6A8F",
+      "attrs": {
+        "category": "bottom",
+        "colorFamily": "블루",
+        "seasons": [
+          "spring_fall",
+          "summer",
+          "winter"
+        ],
+        "fit": "regular",
+        "length": "long"
+      }
+    },
+    {
+      "id": "p_sneak3",
+      "title": "화이트 스니커즈",
+      "alias": "화이트 스니커즈",
+      "shop": "[쇼핑몰]",
+      "url": null,
+      "price": null,
+      "image": null,
+      "colorHex": "#F4F3EF",
+      "attrs": {
+        "category": "shoes",
+        "colorFamily": "화이트",
+        "seasons": [
+          "spring_fall",
+          "summer",
+          "winter"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "id": "l_charcoal",
+  "title": "차콜 롱코트 다크톤",
+  "source": "[출처]",
+  "photo": null,
+  "tags": [
+    "가을",
+    "겨울",
+    "남자",
+    "코트",
+    "하객"
+  ],
+  "items": [
+    {
+      "id": "p_charcoal",
+      "title": "차콜 롱코트",
+      "alias": "차콜 롱코트",
+      "shop": "[쇼핑몰]",
+      "url": null,
+      "price": null,
+      "image": null,
+      "colorHex": "#3E4044",
+      "attrs": {
+        "category": "outer",
+        "colorFamily": "차콜",
+        "seasons": [
+          "winter"
+        ],
+        "fit": "oversized",
+        "length": "long"
+      }
+    },
+    {
+      "id": "p_knit2",
+      "title": "블랙 니트",
+      "alias": "블랙 니트",
+      "shop": "[쇼핑몰]",
+      "url": null,
+      "price": null,
+      "image": null,
+      "colorHex": "#2B2B29",
+      "attrs": {
+        "category": "top",
+        "colorFamily": "블랙",
+        "seasons": [
+          "spring_fall",
+          "winter"
+        ],
+        "fit": "regular",
+        "length": "regular"
+      }
+    },
+    {
+      "id": "p_slacks3",
+      "title": "블랙 슬랙스",
+      "alias": "블랙 슬랙스",
+      "shop": "[쇼핑몰]",
+      "url": null,
+      "price": null,
+      "image": null,
+      "colorHex": "#2B2B29",
+      "attrs": {
+        "category": "bottom",
+        "colorFamily": "블랙",
+        "seasons": [
+          "spring_fall",
+          "summer",
+          "winter"
+        ],
+        "fit": "slim",
+        "length": "long"
+      }
+    },
+    {
+      "id": "p_derby",
+      "title": "블랙 더비 슈즈",
+      "alias": "블랙 더비 슈즈",
+      "shop": "[쇼핑몰]",
+      "url": null,
+      "price": null,
+      "image": null,
+      "colorHex": "#2B2B29",
+      "attrs": {
+        "category": "shoes",
+        "colorFamily": "블랙",
+        "seasons": [
+          "spring_fall",
+          "summer",
+          "winter"
+        ]
+      }
+    }
+  ]
+}

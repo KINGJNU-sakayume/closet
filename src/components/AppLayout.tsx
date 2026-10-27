@@ -1,4 +1,5 @@
 import { Outlet, useMatches, useSearchParams } from 'react-router-dom';
+import { useShoppingCount } from '../db/hooks';
 import { Header, LandingHeader } from './Header';
 import { MobileLandingBar, MobileTopBar } from './MobileTopBar';
 import { TabBar } from './TabBar';
@@ -10,15 +11,12 @@ export interface RouteHandle {
   chrome?: 'app' | 'landing' | 'modal';
 }
 
-// 2단계(데이터)에서 IndexedDB의 쇼핑 리스트 개수로 바꾼다. 지금은 예시 데이터의 초기값.
-const SHOPPING_COUNT_PLACEHOLDER = 2;
-
 export function AppLayout() {
   const matches = useMatches();
   const [params] = useSearchParams();
   const handle = (matches[matches.length - 1]?.handle ?? { title: '' }) as RouteHandle;
   const chrome = handle.chrome ?? 'app';
-  const count = SHOPPING_COUNT_PLACEHOLDER;
+  const count = useShoppingCount();
   // 검색 패널은 5단계에서 연결한다.
   const openSearch = undefined;
 
