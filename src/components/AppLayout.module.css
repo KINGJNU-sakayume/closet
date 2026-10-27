@@ -1,0 +1,22 @@
+.shell {
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.mobile {
+  display: none;
+}
+
+@media (max-width: 767.98px) {
+  .desktop {
+    display: none;
+  }
+
+  .mobile {
+    display: contents;
+  }
+
+  .withTabBar {
+    padding-bottom: calc(var(--tabbar-h) + env(safe-area-inset-bottom));
+  }
+}

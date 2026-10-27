@@ -1,0 +1,51 @@
+.page {
+  width: 100%;
+  margin: 0 auto;
+  padding: var(--sp-32) var(--gutter);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-24);
+}
+
+.landing {
+  max-width: var(--w-landing);
+}
+
+.wide {
+  max-width: var(--w-wide);
+}
+
+.narrow {
+  max-width: var(--w-narrow);
+}
+
+.full {
+  max-width: none;
+  padding: 0;
+}
+
+.title {
+  font-size: var(--fs-26);
+  font-weight: 700;
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sp-16);
+  padding: var(--sp-32) 0;
+  color: var(--text-2);
+  font-size: var(--fs-15);
+}
+
+@media (max-width: 767.98px) {
+  .page {
+    padding-top: var(--sp-16);
+  }
+
+  /* 모바일은 상단 바에 제목이 있다 */
+  .title {
+    display: none;
+  }
+}
