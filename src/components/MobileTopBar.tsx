@@ -8,7 +8,7 @@ export function MobileTopBar({ title, onSearch }: { title: string; onSearch?: ()
   return (
     <header className={styles.bar}>
       <h1 className={styles.title}>{title}</h1>
-      <IconButton icon="search" size={22} aria-label="검색" onClick={onSearch} />
+      <IconButton icon="search" size={22} aria-label="룩 검색" aria-haspopup="dialog" onClick={() => onSearch?.()} />
       <Link to="/register" aria-label="옷 등록" className={styles.add}>
         <Icon name="plus" size={20} strokeWidth={2.2} />
       </Link>

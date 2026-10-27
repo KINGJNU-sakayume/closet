@@ -1,7 +1,11 @@
+import { useCallback, useState } from 'react';
 import { Outlet, useMatches, useSearchParams } from 'react-router-dom';
 import { useShoppingCount } from '../db/hooks';
+import { useIsMobile } from '../hooks/useMediaQuery';
 import { Header, LandingHeader } from './Header';
 import { MobileLandingBar, MobileTopBar } from './MobileTopBar';
+import { SearchPanel } from './SearchPanel';
+import { SearchContext } from './searchContext';
 import { TabBar } from './TabBar';
 import styles from './AppLayout.module.css';
 
@@ -17,30 +21,35 @@ export function AppLayout() {
   const handle = (matches[matches.length - 1]?.handle ?? { title: '' }) as RouteHandle;
   const chrome = handle.chrome ?? 'app';
   const count = useShoppingCount();
-  // 검색 패널은 5단계에서 연결한다.
-  const openSearch = undefined;
+  const isMobile = useIsMobile();
+  const [search, setSearch] = useState<{ anchor?: DOMRect } | null>(null);
+  const openSearch = useCallback((el?: HTMLElement) => setSearch({ anchor: isMobile ? undefined : el?.getBoundingClientRect() }), [isMobile]);
+  const closeSearch = useCallback(() => setSearch(null), []);
 
   return (
-    <div className={[styles.shell, chrome === 'app' && styles.withTabBar].filter(Boolean).join(' ')}>
-      <div className={styles.desktop}>
-        {chrome === 'landing' ? <LandingHeader /> : <Header shoppingCount={count} query={params.get('q') ?? undefined} onSearch={openSearch} />}
+    <SearchContext.Provider value={openSearch}>
+      <div className={[styles.shell, chrome === 'app' && styles.withTabBar].filter(Boolean).join(' ')}>
+        <div className={styles.desktop}>
+          {chrome === 'landing' ? <LandingHeader /> : <Header shoppingCount={count} query={params.get('q') ?? undefined} onSearch={openSearch} />}
+        </div>
+        {chrome === 'app' && (
+          <div className={styles.mobile}>
+            <MobileTopBar title={handle.title} onSearch={openSearch} />
+          </div>
+        )}
+        {chrome === 'landing' && (
+          <div className={styles.mobile}>
+            <MobileLandingBar />
+          </div>
+        )}
+        <Outlet />
+        {chrome === 'app' && (
+          <div className={styles.mobile}>
+            <TabBar shoppingCount={count} />
+          </div>
+        )}
+        {search && <SearchPanel anchor={search.anchor} initialMine={params.get('mine') === '1'} onClose={closeSearch} />}
       </div>
-      {chrome === 'app' && (
-        <div className={styles.mobile}>
-          <MobileTopBar title={handle.title} onSearch={openSearch} />
-        </div>
-      )}
-      {chrome === 'landing' && (
-        <div className={styles.mobile}>
-          <MobileLandingBar />
-        </div>
-      )}
-      <Outlet />
-      {chrome === 'app' && (
-        <div className={styles.mobile}>
-          <TabBar shoppingCount={count} />
-        </div>
-      )}
-    </div>
+    </SearchContext.Provider>
   );
 }

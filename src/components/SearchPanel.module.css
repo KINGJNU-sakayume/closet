@@ -1,0 +1,279 @@
+.root {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+}
+
+.root > * {
+  pointer-events: auto;
+}
+
+.scrim {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--scrim);
+}
+
+.form {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 var(--sp-16);
+  border: 1.5px solid var(--text);
+  border-radius: var(--r-search);
+  background: var(--bg);
+}
+
+.input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: var(--fs-15);
+}
+
+.input::-webkit-search-cancel-button {
+  appearance: none;
+}
+
+.input:focus-visible {
+  outline: none;
+}
+
+.form:focus-within {
+  outline: 2px solid var(--text);
+  outline-offset: 2px;
+}
+
+.panel {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 32px);
+  max-width: 760px;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  padding: var(--sp-24) 28px 28px;
+  border-radius: var(--r-panel);
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-24);
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-12);
+}
+
+.top button:last-child {
+  margin-right: -10px;
+}
+
+.idle {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-24);
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.blockHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.h2 {
+  font-size: var(--fs-14);
+  font-weight: 700;
+}
+
+.sub {
+  margin-top: 2px;
+  font-size: var(--fs-13);
+  color: var(--muted);
+}
+
+.muted {
+  font-size: var(--fs-13);
+  color: var(--muted);
+  padding: var(--sp-12) var(--sp-8) 0 0;
+}
+
+.clear {
+  min-height: var(--hit);
+  padding: 0 var(--sp-4);
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font-size: var(--fs-13);
+}
+
+.recent {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 var(--sp-20);
+}
+
+.recent .muted {
+  padding: 0;
+}
+
+.recentItem {
+  display: inline-flex;
+  align-items: center;
+}
+
+.recentLink,
+.tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--hit);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font-size: var(--fs-14);
+}
+
+.recentX {
+  width: 32px;
+  color: var(--muted);
+}
+
+.mine {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.mineItem {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-decoration: none;
+  color: var(--text-2);
+  font-size: var(--fs-12);
+  line-height: 1.35;
+}
+
+.mineThumb {
+  aspect-ratio: 1 / 1;
+  border-radius: var(--r-tile);
+  background: var(--tile);
+  overflow: hidden;
+}
+
+.tagRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 var(--sp-20);
+}
+
+.tagRow + .tagRow {
+  margin-top: -10px;
+}
+
+.tagLabel {
+  width: 36px;
+  font-size: var(--fs-13);
+  color: var(--muted);
+}
+
+.suggest {
+  display: flex;
+  flex-direction: column;
+}
+
+.suggestRow {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-12);
+  min-height: 48px;
+  padding: 0 var(--sp-8);
+  border: 0;
+  border-top: 1px solid var(--line);
+  background: transparent;
+  color: var(--text-2);
+  font-size: var(--fs-15);
+  text-align: left;
+}
+
+.suggestRow strong {
+  color: var(--text);
+}
+
+/* 모바일 전체 화면 */
+.mobile {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+}
+
+.mTop {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-12);
+  margin-top: env(safe-area-inset-top);
+  padding: var(--sp-8) var(--gutter);
+}
+
+.mForm {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-8);
+  height: var(--input-h-m);
+  padding: 0 var(--sp-12);
+  border-radius: var(--r-tile);
+  background: var(--tile);
+}
+
+.mForm .input {
+  font-size: var(--fs-input-m);
+}
+
+.mForm:focus-within {
+  outline: 2px solid var(--text);
+  outline-offset: 2px;
+}
+
+.cancel {
+  min-height: var(--hit);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-size: var(--fs-input-m);
+}
+
+.mBody {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--sp-8) var(--gutter) var(--sp-32);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-24);
+}
+
+.mobile .mine {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}

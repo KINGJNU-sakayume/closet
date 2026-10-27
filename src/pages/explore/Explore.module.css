@@ -1,0 +1,137 @@
+.page {
+  width: 100%;
+  max-width: var(--w-wide);
+  margin: 0 auto;
+  padding: var(--sp-32) var(--gutter);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-24);
+}
+
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--sp-16);
+}
+
+.title {
+  font-size: var(--fs-26);
+  font-weight: 700;
+}
+
+.summary {
+  margin-top: var(--sp-4);
+  font-size: var(--fs-14);
+  color: var(--muted);
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-16);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--sp-32) var(--sp-24);
+}
+
+.empty {
+  padding: 48px var(--sp-24);
+  border: 1px dashed var(--line-input);
+  border-radius: var(--r-tile);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-12);
+}
+
+.emptyTitle {
+  font-size: var(--fs-15);
+  font-weight: 700;
+}
+
+.emptySub {
+  font-size: var(--fs-14);
+  color: var(--muted);
+}
+
+/* 모바일 */
+.mPage {
+  padding: 0 var(--gutter) var(--sp-24);
+  display: flex;
+  flex-direction: column;
+}
+
+.mControls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mSearch {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-8);
+  height: 40px;
+  padding: 0 var(--sp-12);
+  border: 0;
+  border-radius: 10px;
+  background: var(--tile);
+  color: var(--text);
+  font-size: var(--fs-15);
+  text-align: left;
+}
+
+.mSearch svg {
+  color: var(--muted);
+}
+
+.placeholder {
+  color: var(--muted);
+}
+
+.mRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-8);
+}
+
+.mCheck {
+  font-size: var(--fs-13);
+}
+
+.sortButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  height: var(--hit);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font-size: var(--fs-13);
+  font-weight: 700;
+}
+
+.mTitle {
+  margin-top: var(--sp-8);
+  font-size: var(--fs-18);
+  font-weight: 700;
+}
+
+.mPage .summary {
+  margin: var(--sp-8) 0 var(--sp-12);
+  font-size: var(--fs-12);
+}
+
+.mPage .grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--sp-20) var(--sp-12);
+}

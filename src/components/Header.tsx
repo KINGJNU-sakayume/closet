@@ -7,7 +7,7 @@ import styles from './Header.module.css';
 interface Props {
   shoppingCount: number;
   query?: string;
-  onSearch?: () => void;
+  onSearch?: (anchor: HTMLElement) => void;
 }
 
 // 데스크톱 공통 헤더: 로고 · 검색창 · 탭 4개 · + 옷 등록
@@ -17,7 +17,7 @@ export function Header({ shoppingCount, query, onSearch }: Props) {
       <Link to="/" className={styles.logo}>
         Closet / Look
       </Link>
-      <button type="button" className={styles.search} onClick={onSearch} aria-haspopup="dialog">
+      <button type="button" className={styles.search} onClick={(e) => onSearch?.(e.currentTarget)} aria-haspopup="dialog" aria-label={query ? `룩 검색: ${query}` : '룩 검색'}>
         <span className={styles.searchIcon}>
           <Icon name="search" />
         </span>
