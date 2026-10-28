@@ -14,7 +14,10 @@ export function LookCover({ look, alt }: { look: Look; alt?: string }) {
   if (look.photo) return <img src={assetUrl(look.photo)} alt={alt ?? look.title} className={styles.photo} />;
   const color = (slot: Slot) => look.items.find((i) => i.attrs.category === slot)?.colorHex;
   return (
-    <div className={styles.shapes} role="img" aria-label={alt ?? `${look.title}: ${look.items.map((i) => i.alias).join(', ')}`}>
+    <div
+      className={styles.shapes}
+      {...(alt === '' ? { 'aria-hidden': true } : { role: 'img', 'aria-label': alt ?? `${look.title}: ${look.items.map((i) => i.alias).join(', ')}` })}
+    >
       {parts.map(
         (p) =>
           color(p.slot) && (

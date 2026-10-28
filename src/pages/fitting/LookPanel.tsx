@@ -11,6 +11,7 @@ import { addToShopping, deleteOverride, putOverride } from '../../db/actions';
 import { categoryLabel } from '../../domain/garmentOptions';
 import { assetUrl } from '../../domain/looks';
 import type { ItemResult, LookResult } from '../../domain/matching';
+import { useFocusNext } from '../../hooks/useFocusNext';
 import { dragRef, type Fitting } from './useFitting';
 import styles from './LookPanel.module.css';
 
@@ -72,6 +73,7 @@ export function LookPanel({ fit, mobile, onCollapse }: { fit: Fitting; mobile?: 
 
 function LookItem({ item, lookId, fit, mobile }: { item: ItemResult; lookId: string; fit: Fitting; mobile?: boolean }) {
   const [picking, setPicking] = useState(false);
+  const [root, focusNext] = useFocusNext<HTMLLIElement>();
   const p = item.product;
   const owned = item.verdict !== 'none' && item.garment;
   const ref = owned ? { garmentId: item.garment!.id } : { productId: p.id };
@@ -81,6 +83,7 @@ function LookItem({ item, lookId, fit, mobile }: { item: ItemResult; lookId: str
 
   return (
     <li
+      ref={root}
       className={styles.item}
       draggable={!mobile}
       onDragStart={(e) => e.dataTransfer.setData('text/plain', dragRef(ref))}
@@ -107,7 +110,14 @@ function LookItem({ item, lookId, fit, mobile }: { item: ItemResult; lookId: str
                 쇼핑 리스트에 있어요
               </Link>
             ) : (
-              <Button variant="text" accent onClick={() => addToShopping([p.id])}>
+              <Button
+                variant="text"
+                accent
+                onClick={() => {
+                  focusNext('쇼핑 리스트에 있어요');
+                  void addToShopping([p.id]);
+                }}
+              >
                 <Icon name="plus" size={14} />
                 쇼핑 리스트에 담기
               </Button>
@@ -119,13 +129,21 @@ function LookItem({ item, lookId, fit, mobile }: { item: ItemResult; lookId: str
             </ButtonExternal>
           )}
           {item.overridden && (
-            <Button variant="text" className={styles.subtle} onClick={() => deleteOverride(lookId, p.id)}>
+            <Button variant="text" className={styles.subtle} onClick={() => {
+                focusNext('이미 비슷한 옷이 있어요');
+                void deleteOverride(lookId, p.id);
+              }}
+            >
               되돌리기
             </Button>
           )}
         </div>
         {item.verdict === 'none' && !picking && candidates.length > 0 && (
-          <Button variant="text" className={styles.subtle} onClick={() => setPicking(true)}>
+          <Button variant="text" className={styles.subtle} onClick={() => {
+              focusNext(candidates[0]?.alias ?? '취소');
+              setPicking(true);
+            }}
+          >
             이미 비슷한 옷이 있어요
           </Button>
         )}
@@ -138,6 +156,7 @@ function LookItem({ item, lookId, fit, mobile }: { item: ItemResult; lookId: str
                 type="button"
                 className={styles.pick}
                 onClick={async () => {
+                  focusNext('되돌리기');
                   await putOverride({ lookId, productId: p.id, garmentId: g.id });
                   setPicking(false);
                 }}
@@ -148,7 +167,14 @@ function LookItem({ item, lookId, fit, mobile }: { item: ItemResult; lookId: str
                 {g.alias}
               </button>
             ))}
-            <Button variant="text" className={styles.subtle} onClick={() => setPicking(false)}>
+            <Button
+              variant="text"
+              className={styles.subtle}
+              onClick={() => {
+                focusNext('이미 비슷한 옷이 있어요');
+                setPicking(false);
+              }}
+            >
               취소
             </Button>
           </div>

@@ -2,8 +2,8 @@ import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'reac
 import { Link, type LinkProps } from 'react-router-dom';
 import styles from './Button.module.css';
 
-// primary: 검은 직사각형(화면당 1개) · pill: 헤더 핵심 버튼(화면당 1개) · text: 테두리 없는 보조 동작
-export type ButtonVariant = 'primary' | 'pill' | 'text';
+// primary: 검은 직사각형(화면당 1개) · inverse: 어두운 띠 위의 주요 버튼 · pill: 헤더 핵심 버튼(화면당 1개) · text: 테두리 없는 보조 동작
+export type ButtonVariant = 'primary' | 'inverse' | 'pill' | 'text';
 
 interface Common {
   variant?: ButtonVariant;

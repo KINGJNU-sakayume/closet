@@ -26,6 +26,21 @@ export function Register() {
   const isMobile = useIsMobile();
   const navigate = useNavigate();
   const root = useRef<HTMLDivElement>(null);
+  const body = useRef<HTMLDivElement>(null);
+
+  // 단계가 바뀌면 그 단계의 제목으로 포커스(누른 버튼이 사라지므로)
+  const first = useRef(true);
+  useEffect(() => {
+    if (first.current) {
+      first.current = false;
+      return;
+    }
+    const h = body.current?.querySelector<HTMLElement>('h2');
+    if (h) {
+      h.tabIndex = -1;
+      h.focus();
+    }
+  }, [reg.step]);
 
   // 모바일 전체 화면 모달: 열리면 안으로 포커스, Esc는 취소. 닫으면 열었던 '옷 등록' 버튼으로 포커스를 돌려준다.
   const cancel = () => {
@@ -41,19 +56,19 @@ export function Register() {
     return () => window.removeEventListener('keydown', onKey);
   }, [isMobile]);
 
-  const body = (
-    <>
+  const content = (
+    <div ref={body} className={styles.body}>
       {reg.step === 1 && <StepPhoto mobile={isMobile} onFiles={reg.startWithFiles} onUrl={reg.startWithUrl} />}
       {reg.step === 2 && <StepDetails mobile={isMobile} reg={reg} />}
       {reg.step === 3 && reg.saved && <StepDone mobile={isMobile} garment={reg.saved} onNext={reg.next} queued={reg.queued} />}
-    </>
+    </div>
   );
 
   if (isMobile) {
     return (
       <div ref={root} tabIndex={-1} role="dialog" aria-modal="true" aria-labelledby="register-title" className={styles.mobile}>
         <ModalTopBar title="옷 등록" titleId="register-title" step={reg.step} total={3} onCancel={cancel} />
-        {body}
+        {content}
       </div>
     );
   }
@@ -78,7 +93,7 @@ export function Register() {
           ))}
         </ol>
       </div>
-      {body}
+      {content}
     </main>
   );
 }

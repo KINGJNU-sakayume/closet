@@ -40,7 +40,7 @@
 .stepItem {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: var(--sp-4);
   height: 36px;
   color: var(--muted);
   font-weight: 500;
@@ -62,4 +62,17 @@
   flex-direction: column;
   background: var(--bg);
   outline: none;
+}
+
+.body {
+  display: contents;
+}
+
+.body h2:focus {
+  outline: none;
+}
+
+.body h2:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 2px;
 }

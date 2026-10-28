@@ -9,6 +9,7 @@ import { useLookResults, useLooks, useOutfits, useShoppingAll } from '../../db/h
 import { productIndex } from '../../domain/catalog';
 import { assetUrl } from '../../domain/looks';
 import { shoppingRows, totalPrice, type ShoppingRow, type ShoppingSort } from '../../domain/shopping';
+import { useFocusNext } from '../../hooks/useFocusNext';
 import styles from './Shopping.module.css';
 
 const SORTS: { value: ShoppingSort; label: string }[] = [
@@ -27,6 +28,8 @@ export function Shopping() {
   const outfits = useOutfits();
   const all = useShoppingAll();
   const products = useMemo(() => productIndex(looks ?? []), [looks]);
+  // '샀어요'·'되돌리기'를 누르면 그 버튼이 사라지므로, 같은 행의 반대 버튼으로 포커스를 옮긴다
+  const [list, focusNext] = useFocusNext<HTMLUListElement>();
 
   if (!looks || !results || !outfits || !all) return <main className={styles.page} aria-busy="true" />;
 
@@ -43,10 +46,12 @@ export function Shopping() {
 
   const buy = async (r: ShoppingRow) => {
     const garmentId = await markBought(r.product);
+    focusNext(`${r.product.alias}: 되돌리기`);
     setBought((b) => ({ ...b, [r.product.id]: { garmentId, row: r } }));
   };
   const undo = async (r: ShoppingRow) => {
     await undoBought(r.product.id, bought[r.product.id].garmentId);
+    focusNext(`${r.product.alias}: 샀어요`);
     setBought(({ [r.product.id]: _, ...rest }) => rest);
   };
 
@@ -75,7 +80,7 @@ export function Shopping() {
           <ButtonLink to="/explore">룩 둘러보기</ButtonLink>
         </div>
       ) : (
-        <ul className={styles.list}>
+        <ul className={styles.list} ref={list}>
           {rows.map((r) => {
             const p = r.product;
             const done = !!bought[p.id];
@@ -113,7 +118,7 @@ export function Shopping() {
                         <Icon name="check" size={16} strokeWidth={2.4} />
                         옷장으로 옮겼어요
                       </div>
-                      <Button variant="text" className={styles.subtle} onClick={() => undo(r)}>
+                      <Button variant="text" className={styles.subtle} onClick={() => undo(r)} aria-label={`${p.alias}: 되돌리기`}>
                         되돌리기
                       </Button>
                     </>
@@ -131,7 +136,7 @@ export function Shopping() {
                         </Button>
                       )}
                       <div className={styles.small}>
-                        <Button variant="text" onClick={() => buy(r)}>
+                        <Button variant="text" onClick={() => buy(r)} aria-label={`${p.alias}: 샀어요`}>
                           <Icon name="check" size={16} strokeWidth={2} />
                           샀어요
                         </Button>

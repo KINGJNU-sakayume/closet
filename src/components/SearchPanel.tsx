@@ -172,7 +172,8 @@ export function SearchPanel({ anchor, initialMine, onClose }: Props) {
 
   return (
     <div ref={ref} role="dialog" aria-modal="true" aria-label="룩 검색" className={styles.root}>
-      <div className={styles.scrim} style={{ top: anchor.bottom + 14 }} onClick={onClose} />
+      {/* 바깥 클릭으로 닫기(마우스용). 키보드는 Esc·닫기 버튼 */}
+      <button type="button" tabIndex={-1} aria-hidden="true" className={styles.scrim} style={{ top: anchor.bottom + 14 }} onClick={onClose} />
       {input}
       <div className={styles.panel} style={{ top: anchor.bottom + 14 + 12 }}>
         {body}

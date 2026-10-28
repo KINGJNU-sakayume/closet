@@ -16,8 +16,10 @@ export function SortSheet<T extends string>({ open, title, options, value, onCha
   const ref = useDialog<HTMLDivElement>(open, onClose);
   if (!open) return null;
   return (
-    <div className={styles.scrim} onClick={onClose}>
-      <div ref={ref} role="dialog" aria-modal="true" aria-labelledby="sort-title" className={styles.sheet} onClick={(e) => e.stopPropagation()}>
+    <div className={styles.wrap}>
+      {/* 바깥 클릭으로 닫기(마우스용). 키보드는 Esc·완료 */}
+      <button type="button" tabIndex={-1} aria-hidden="true" className={styles.scrim} onClick={onClose} />
+      <div ref={ref} role="dialog" aria-modal="true" aria-labelledby="sort-title" className={styles.sheet}>
         <span className={styles.grabber} aria-hidden="true" />
         <div className={styles.head}>
           <h2 id="sort-title" className={styles.title}>

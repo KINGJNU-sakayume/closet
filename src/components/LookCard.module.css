@@ -1,7 +1,7 @@
 .card {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: var(--sp-8);
   text-decoration: none;
   color: var(--text);
 }
@@ -19,7 +19,7 @@
 }
 
 .source {
-  margin-top: 2px;
+  margin-top: var(--sp-4);
   font-size: var(--fs-12);
   color: var(--muted);
 }

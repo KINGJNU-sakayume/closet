@@ -14,14 +14,18 @@
   left: 0;
   right: 0;
   bottom: 0;
+  width: 100%;
+  padding: 0;
+  border: 0;
   background: var(--scrim);
+  cursor: default;
 }
 
 .form {
   position: fixed;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: var(--sp-8);
   padding: 0 var(--sp-16);
   border: 1.5px solid var(--text);
   border-radius: var(--r-search);
@@ -88,7 +92,7 @@
 .block {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: var(--sp-8);
 }
 
 .blockHead {
@@ -103,7 +107,7 @@
 }
 
 .sub {
-  margin-top: 2px;
+  margin-top: var(--sp-4);
   font-size: var(--fs-13);
   color: var(--muted);
 }
@@ -159,13 +163,13 @@
 .mine {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 10px;
+  gap: var(--sp-8);
 }
 
 .mineItem {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: var(--sp-4);
   text-decoration: none;
   color: var(--text-2);
   font-size: var(--fs-12);

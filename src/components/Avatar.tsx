@@ -16,6 +16,10 @@ interface Props {
   onDrop?: (ref: string) => void;
   /** 모바일은 설명 선을 짧게 */
   compact?: boolean;
+  /** 무대 폭(px). 비우면 320, compact는 228 */
+  width?: number;
+  /** 접근성 이름 앞부분 */
+  label?: string;
 }
 
 const pct = (p: Placement) => ({
@@ -46,10 +50,10 @@ function Layer({ item, layered }: { item: WornItem; layered: boolean }) {
 }
 
 // 마네킹 SVG 위에 배경을 지운 옷 사진(없으면 옷 모양 SVG)을 겹치는 콜라주
-export function Avatar({ items, onDrop, compact }: Props) {
+export function Avatar({ items, onDrop, compact, width, label: name = '내 아바타' }: Props) {
   const [over, setOver] = useState(false);
   const hasOuter = items.some((i) => i.slot === 'outer');
-  const label = `내 아바타. 입은 옷: ${items.map((i) => itemName(i) + (i.kind === 'product' ? '(쇼핑몰 상품)' : '')).join(', ') || '없음'}`;
+  const label = `${name}. 입은 옷: ${items.map((i) => itemName(i) + (i.kind === 'product' ? '(쇼핑몰 상품)' : '')).join(', ') || '없음'}`;
 
   const dnd = onDrop && {
     onDragOver: (e: DragEvent) => e.preventDefault(),
@@ -69,7 +73,10 @@ export function Avatar({ items, onDrop, compact }: Props) {
   };
 
   return (
-    <div role="img" aria-label={label} className={[styles.stage, over && styles.over, compact && styles.compact].filter(Boolean).join(' ')} {...dnd}>
+    <div role="img" aria-label={label} className={[styles.stage, over && styles.over, compact && styles.compact].filter(Boolean).join(' ')}
+      style={width ? { width } : undefined}
+      {...dnd}
+    >
       <svg aria-hidden="true" viewBox="0 0 320 480" className={styles.full}>
         <ellipse cx="160" cy="475" rx="58" ry="4" fill="var(--mannequin-shadow)" />
         {[P.armL, P.armR, P.body, P.head].map((d) => (

@@ -40,7 +40,7 @@
 .tab,
 .cat {
   height: var(--hit);
-  padding: 0 2px;
+  padding: 0 var(--sp-4);
   border: 0;
   background: transparent;
   color: var(--text-2);
@@ -115,7 +115,7 @@
 
 .usage {
   display: block;
-  margin-top: 2px;
+  margin-top: var(--sp-4);
   font-size: var(--fs-12);
   color: var(--muted);
 }
@@ -150,7 +150,7 @@
 }
 
 .outfit {
-  padding: 14px;
+  padding: var(--sp-12);
   border: 1px solid var(--line);
   border-radius: var(--r-tile);
   display: flex;
@@ -161,7 +161,7 @@
 .tiles {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 6px;
+  gap: var(--sp-4);
 }
 
 .tile {
@@ -176,7 +176,7 @@
   position: absolute;
   left: 0;
   top: 0;
-  padding: var(--sp-4) 7px;
+  padding: var(--sp-4) var(--sp-8);
   border-radius: var(--r-tile) 0 var(--r-button) 0;
   background: var(--bg);
   color: var(--accent);
@@ -191,7 +191,7 @@
 
 .metaOwn,
 .metaShop {
-  margin-top: 2px;
+  margin-top: var(--sp-4);
   font-size: var(--fs-12);
   font-weight: 700;
 }
@@ -213,7 +213,7 @@
 .action {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: var(--sp-4);
   min-height: var(--hit);
   color: var(--text);
   font-size: var(--fs-14);
