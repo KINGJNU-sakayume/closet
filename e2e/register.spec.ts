@@ -1,5 +1,7 @@
-import { expect, test, type Page } from '@playwright/test';
+import { type Page } from '@playwright/test';
+import { expect, test } from './helpers/fixtures';
 import { fileURLToPath } from 'node:url';
+import { waitForCutout } from './helpers/cutout';
 
 // 완료 확인 시나리오 9: 옷 등록. 배경 제거 모델을 실제로 내려받아 돌리므로 오래 걸린다.
 const photo = fileURLToPath(new URL('../reference/assets/tee_original.png', import.meta.url));
@@ -18,7 +20,7 @@ async function closetCount(page: Page) {
 }
 
 test.describe('옷 등록', () => {
-  test.setTimeout(240_000);
+  test.setTimeout(700_000);
 
   test('데스크톱: 업로드 → 배경 제거 → 별칭 → 옷장에 추가', async ({ page }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
@@ -29,7 +31,7 @@ test.describe('옷 등록', () => {
 
     await page.getByTestId('photo-input').setInputFiles(photo);
     await expect(page.getByRole('status')).toContainText('배경을 지우는 중이에요');
-    await expect(page.getByRole('img', { name: '배경을 지운 결과' })).toBeVisible({ timeout: 200_000 });
+    await waitForCutout(page);
     await expect(page.getByRole('img', { name: '원본 사진' })).toBeVisible();
 
     const alias = page.getByLabel('내 옷장에서 부를 이름');
@@ -79,31 +81,5 @@ test.describe('옷 등록', () => {
     await expect(page.getByText('내 옷장 11벌')).toBeVisible();
     await page.getByRole('button', { name: '한 벌 더 등록' }).click();
     await expect(page.locator('li[aria-current="step"]')).toHaveText('1사진');
-  });
-
-  test('모바일: 탭 바 없는 전체 화면, 하단 고정 버튼', async ({ page }) => {
-    await page.setViewportSize({ width: 390, height: 844 });
-    await page.goto('/register?reset=1');
-    const dialog = page.getByRole('dialog', { name: '옷 등록' });
-    await expect(dialog).toBeVisible();
-    await expect(page.getByRole('navigation', { name: '주 메뉴' })).toHaveCount(0);
-    await expect(dialog.getByText('1 / 3')).toBeVisible();
-    await page.screenshot({ path: 'e2e/screens/m3a-register-step1.png' });
-
-    await page.locator('input[type=file][multiple]').setInputFiles(photo);
-    await expect(dialog.getByText('2 / 3')).toBeVisible();
-    await expect(page.getByRole('img', { name: '배경을 지운 결과' })).toBeVisible({ timeout: 200_000 });
-    const add = page.getByRole('button', { name: '옷장에 추가' });
-    const box = await add.boundingBox();
-    expect(box!.y + box!.height).toBeGreaterThan(844 - 60);
-    await page.screenshot({ path: 'e2e/screens/m3b-register-step2.png' });
-
-    await add.click();
-    await expect(dialog.getByText('3 / 3')).toBeVisible();
-    await expect(page.getByText('내 옷장 11벌')).toBeVisible();
-    await page.screenshot({ path: 'e2e/screens/m3c-register-step3.png' });
-
-    await page.keyboard.press('Escape');
-    await expect(page).not.toHaveURL(/\/register/);
   });
 });

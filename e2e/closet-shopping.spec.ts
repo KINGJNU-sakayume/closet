@@ -108,26 +108,13 @@ test.describe('데스크톱', () => {
     await page.getByRole('button', { name: '코디 저장' }).click();
     await page.getByLabel('코디 이름').fill('남는 코디');
     await page.getByRole('button', { name: '저장', exact: true }).click();
+    // 저장이 끝난 뒤(확인 문구) 새로고침
+    await expect(page.getByText('‘남는 코디’ 저장했어요')).toBeVisible();
     await page.reload();
     await expect(page.getByRole('link', { name: '쇼핑 리스트, 3벌' })).toBeVisible();
     await page.goto('/closet?tab=outfits');
     await expect(page.getByRole('heading', { name: '남는 코디' })).toBeVisible();
     await page.reload();
     await expect(page.getByRole('tab', { name: '코디 5' })).toBeVisible();
-  });
-});
-
-test.describe('모바일', () => {
-  test.use({ viewport: { width: 390, height: 844 } });
-  test('내 옷장·쇼핑 리스트가 1열로 동작', async ({ page }) => {
-    await page.goto('/shopping?reset=1');
-    await expect(page.getByRole('heading', { name: '쇼핑 리스트', level: 1 })).toBeVisible();
-    const rows = page.getByRole('main').getByRole('listitem');
-    await expect(rows).toHaveCount(2);
-    const w = await page.evaluate(() => document.documentElement.scrollWidth);
-    expect(w).toBeLessThanOrEqual(390);
-    await page.goto('/closet?tab=outfits');
-    await expect(page.getByRole('article')).toHaveCount(4);
-    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
   });
 });

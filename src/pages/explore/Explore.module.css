@@ -78,7 +78,7 @@
   display: flex;
   align-items: center;
   gap: var(--sp-8);
-  height: 40px;
+  height: var(--hit);
   padding: 0 var(--sp-12);
   border: 0;
   border-radius: 10px;

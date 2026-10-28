@@ -227,3 +227,7 @@
   height: 56px;
   border-radius: var(--r-button);
 }
+
+.mobile .actions {
+  gap: 0 18px;
+}

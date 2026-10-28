@@ -14,14 +14,25 @@ const STEPS: { no: Step; label: string }[] = [
   { no: 3, label: '완료' },
 ];
 
+/** 돌아간 화면이 그려지면 '옷 등록' 버튼(모바일 상단 바의 +)에 포커스 */
+function focusOpener(tries = 20) {
+  const el = Array.from(document.querySelectorAll<HTMLElement>('[aria-label="옷 등록"], a[href$="/register"]')).find((x) => x.offsetParent !== null);
+  if (el) el.focus();
+  else if (tries > 0) setTimeout(() => focusOpener(tries - 1), 50);
+}
+
 export function Register() {
   const reg = useRegister();
   const isMobile = useIsMobile();
   const navigate = useNavigate();
   const root = useRef<HTMLDivElement>(null);
 
-  // 모바일 전체 화면 모달: 열리면 안으로 포커스, Esc는 취소
-  const cancel = () => (window.history.state?.idx > 0 ? navigate(-1) : navigate('/closet'));
+  // 모바일 전체 화면 모달: 열리면 안으로 포커스, Esc는 취소. 닫으면 열었던 '옷 등록' 버튼으로 포커스를 돌려준다.
+  const cancel = () => {
+    if (window.history.state?.idx > 0) navigate(-1);
+    else navigate('/closet');
+    focusOpener();
+  };
   useEffect(() => {
     if (!isMobile) return;
     root.current?.focus();
