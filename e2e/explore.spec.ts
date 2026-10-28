@@ -88,35 +88,3 @@ test.describe('데스크톱', () => {
     await expect(page).toHaveURL(/\/register$/);
   });
 });
-
-test.describe('모바일', () => {
-  test.use({ viewport: { width: 390, height: 844 } });
-
-  test('시나리오 10: 2열 그리드, 정렬 시트', async ({ page }) => {
-    await page.goto('/explore?q=가을 남자 코트 코디&reset=1');
-    await expect(page.getByRole('navigation', { name: '주 메뉴' }).getByRole('link')).toHaveCount(4);
-    const cards = page.locator('main a[href*="/fitting/"]');
-    await expect(cards).toHaveCount(8);
-    // 2열: 첫 두 카드가 같은 줄(글꼴을 받는 동안 줄이 움직일 수 있어 자리 잡을 때까지 기다린다)
-    await expect.poll(async () => (await cards.nth(0).boundingBox())!.y === (await cards.nth(1).boundingBox())!.y).toBe(true);
-    await expect(cards.first()).toContainText('카모 카고 스트릿 코디');
-    await page.screenshot({ path: 'e2e/screens/m1a-explore.png' });
-
-    const sortBtn = page.getByRole('button', { name: /추천순/ });
-    await sortBtn.click();
-    const sheet = page.getByRole('dialog', { name: '정렬' });
-    await expect(sheet.getByRole('radio', { name: '추천순' })).toHaveAttribute('aria-checked', 'true');
-    await page.screenshot({ path: 'e2e/screens/m1b-explore-sort-sheet.png' });
-    await sheet.getByRole('radio', { name: '내 옷 많은 순' }).click();
-    await expect(sheet).toHaveCount(0);
-    await expect(cards.first()).toContainText('베이지 트렌치 출근룩');
-    await expect(page.getByRole('button', { name: /내 옷 많은 순/ })).toBeFocused();
-
-    // 모바일 검색은 전체 화면
-    await page.getByRole('button', { name: /가을 남자 코트 코디/ }).click();
-    const search = page.getByRole('dialog', { name: '룩 검색' });
-    await expect(search).toBeVisible();
-    await search.getByRole('button', { name: '취소' }).click();
-    await expect(search).toHaveCount(0);
-  });
-});

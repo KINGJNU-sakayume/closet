@@ -74,14 +74,12 @@ export function StepDetails({ mobile, reg }: { mobile: boolean; reg: Reg }) {
     <div className={[styles.mPreview, styles[showOriginal ? 'white' : 'tile']].join(' ')}>
       {status ??
         (showOriginal && originalUrl ? <img src={originalUrl} alt="원본 사진" className={styles.mImg} /> : <div className={styles.mImg}>{thumb}</div>)}
-      {!status && (
+      {!status && draft.original && (
         <div className={styles.mCaption}>
-          <span>{draft.original ? (showOriginal ? '원본 사진' : '배경을 지웠어요') : '사진 없음'}</span>
-          {draft.original && (
-            <Button variant="text" onClick={() => setShowOriginal((v) => !v)}>
-              {showOriginal ? '결과 보기' : '원본 보기'}
-            </Button>
-          )}
+          <span>{showOriginal ? '원본 사진' : '배경을 지웠어요'}</span>
+          <Button variant="text" onClick={() => setShowOriginal((v) => !v)}>
+            {showOriginal ? '결과 보기' : '원본 보기'}
+          </Button>
         </div>
       )}
       {noPhoto}

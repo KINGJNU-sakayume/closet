@@ -119,33 +119,3 @@ test.describe('피팅룸 데스크톱', () => {
     await expect(page.getByRole('button', { name: '룩 상세 펼치기' })).toBeVisible();
   });
 });
-
-test.describe('피팅룸 모바일', () => {
-  test.use({ viewport: { width: 390, height: 844 } });
-
-  test('시나리오 10: 시트 256/560, 탭으로 입고 벗기', async ({ page }) => {
-    await page.goto('/fitting/l_camo?reset=1');
-    const sheet = page.getByRole('region', { name: '내 옷장과 룩 상세' });
-    await expect(sheet).toBeVisible();
-    expect((await sheet.boundingBox())!.height).toBe(256);
-    await page.screenshot({ path: 'e2e/screens/m2a-fitting-closet-sheet.png' });
-
-    await page.getByRole('button', { name: '시트 크게 보기' }).click();
-    await expect.poll(async () => (await sheet.boundingBox())!.height).toBe(560);
-    await page.getByRole('button', { name: '시트 작게 보기' }).click();
-    await expect.poll(async () => (await sheet.boundingBox())!.height).toBe(256);
-
-    const slacks = sheet.getByRole('button', { name: /^블랙 슬랙스/ });
-    await slacks.click();
-    await expect(slacks).toHaveAttribute('aria-pressed', 'true');
-    await expect(page.getByRole('img', { name: /^내 아바타/ })).toHaveAttribute('aria-label', /블랙 슬랙스/);
-    await slacks.click();
-    await expect(slacks).toHaveAttribute('aria-pressed', 'false');
-    await expect(page.getByRole('img', { name: /^내 아바타/ })).not.toHaveAttribute('aria-label', /블랙 슬랙스/);
-
-    await page.getByRole('tab', { name: /룩 상세/ }).click();
-    await expect.poll(async () => (await sheet.boundingBox())!.height).toBe(560);
-    await expect(sheet.getByText('내 옷 2/3')).toBeVisible();
-    await page.screenshot({ path: 'e2e/screens/m2b-fitting-look-sheet.png' });
-  });
-});

@@ -136,7 +136,9 @@
 
 .grabber {
   flex: none;
-  height: 22px;
+  /* 보이는 손잡이는 36×5px, 누르는 영역은 44px */
+  height: var(--hit);
+  margin-bottom: -10px;
   border: 0;
   background: transparent;
   display: flex;
