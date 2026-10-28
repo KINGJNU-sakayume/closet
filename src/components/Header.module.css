@@ -4,7 +4,7 @@
   align-items: center;
   gap: var(--sp-12) 28px;
   min-height: var(--header-h);
-  padding: 14px var(--gutter);
+  padding: var(--sp-12) var(--gutter);
   border-bottom: 1px solid var(--line);
   background: var(--bg);
 }
@@ -22,7 +22,7 @@
   max-width: var(--search-max);
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: var(--sp-8);
   height: var(--hit);
   padding: 0 var(--sp-16);
   border: 1px solid var(--line-input);
@@ -53,7 +53,7 @@
 .tab {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: var(--sp-4);
   height: var(--hit);
   text-decoration: none;
   color: var(--muted);

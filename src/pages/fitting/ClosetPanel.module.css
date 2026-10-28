@@ -84,7 +84,7 @@
   background: transparent;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: var(--sp-4);
   text-align: left;
   color: inherit;
 }
@@ -147,16 +147,16 @@
 }
 
 .mobile .catList > div {
-  gap: 0 22px;
+  gap: 0 var(--sp-20);
 }
 
 .mobile .scroll {
-  padding: 10px var(--gutter) var(--sp-16);
+  padding: var(--sp-8) var(--gutter) var(--sp-16);
 }
 
 .mobile .grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 10px;
+  gap: var(--sp-8);
 }
 
 .mobile .tile {
@@ -169,7 +169,7 @@
 }
 
 .mobile .help {
-  margin-top: 10px;
+  margin-top: var(--sp-8);
 }
 
 .check {

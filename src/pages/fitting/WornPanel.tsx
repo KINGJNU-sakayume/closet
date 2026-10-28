@@ -6,14 +6,16 @@ import { IconButton } from '../../components/IconButton';
 import { TextField } from '../../components/TextField';
 import { saveOutfit } from '../../db/actions';
 import { itemName, SLOT_LABEL, SLOTS } from '../../domain/catalog';
+import { useFocusNext } from '../../hooks/useFocusNext';
 import type { Fitting } from './useFitting';
 import styles from './WornPanel.module.css';
 
 // 입은 옷 목록 = 장바구니. 쇼핑몰 상품은 쇼핑 리스트에 담고, 지금 조합은 코디로 저장한다.
 export function WornPanel({ fit }: { fit: Fitting }) {
   const { cart } = fit;
+  const [root, focusNext] = useFocusNext<HTMLDivElement>();
   return (
-    <div className={styles.wrap}>
+    <div className={styles.wrap} ref={root}>
       <ul className={styles.list} aria-label="입은 옷">
         {SLOTS.map((slot) => {
           const item = fit.items.find((i) => i.slot === slot);
@@ -41,7 +43,14 @@ export function WornPanel({ fit }: { fit: Fitting }) {
               <Icon name="arrowRight" size={16} />
             </Link>
           ) : (
-            <Button variant="text" accent onClick={cart.listAll}>
+            <Button
+              variant="text"
+              accent
+              onClick={() => {
+                focusNext('쇼핑 리스트 보기');
+                void cart.listAll();
+              }}
+            >
               <Icon name="plus" size={14} />
               쇼핑 리스트에 담기
             </Button>

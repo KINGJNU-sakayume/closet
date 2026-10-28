@@ -27,7 +27,7 @@
 .done {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: var(--sp-4);
   font-size: var(--fs-13);
   font-weight: 700;
   color: var(--accent);
@@ -69,7 +69,7 @@
 .mobile .info {
   flex: none;
   align-items: center;
-  gap: 10px;
+  gap: var(--sp-8);
   margin-top: var(--sp-12);
 }
 

@@ -37,7 +37,8 @@ export function GarmentThumb({ image, category, colorHex, alt, inset = 8 }: Prop
   const src = typeof image === 'string' ? image : blobUrl;
   if (src) return <img src={src} alt={alt} className={styles.img} style={{ padding: `${inset}%` }} />;
   return (
-    <svg role="img" aria-label={alt} viewBox="0 0 100 100" className={styles.shape} style={{ padding: `${inset}%` }}>
+    // alt가 비면 장식용(옆에 이름 글자가 있음): 화면 낭독기에서 숨긴다
+    <svg {...(alt ? { role: 'img', 'aria-label': alt } : { 'aria-hidden': true })} viewBox="0 0 100 100" className={styles.shape} style={{ padding: `${inset}%` }}>
       <path d={shapes[category] ?? shapes.top} fill={colorHex ?? 'var(--line)'} stroke="var(--line-input)" strokeWidth="1.2" strokeLinejoin="round" />
     </svg>
   );

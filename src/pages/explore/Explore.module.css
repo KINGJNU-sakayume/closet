@@ -71,7 +71,7 @@
 .mControls {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: var(--sp-8);
 }
 
 .mSearch {
@@ -110,7 +110,7 @@
 .sortButton {
   display: inline-flex;
   align-items: center;
-  gap: 2px;
+  gap: var(--sp-4);
   height: var(--hit);
   padding: 0;
   border: 0;

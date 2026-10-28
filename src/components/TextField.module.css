@@ -1,7 +1,7 @@
 .field {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: var(--sp-4);
 }
 
 .label {
@@ -16,7 +16,7 @@
 
 .input {
   height: var(--hit);
-  padding: 0 14px;
+  padding: 0 var(--sp-12);
   border: 1px solid var(--line-input);
   border-radius: var(--r-tile);
   background: var(--bg);

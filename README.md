@@ -6,11 +6,16 @@
 npm install
 npm run dev        # http://localhost:5173
 npm test           # Vitest
-npm run e2e        # Playwright (스크린샷: e2e/screens/)
+npm run e2e        # Playwright: 완료 확인 시나리오 1~12 + 접근성(axe, 키보드, 200% 확대). 스크린샷: e2e/screens/
 npm run build
 ```
 
 개발용 컴포넌트 모음과 예시 데이터 판정 결과: `/dev/components`
+
+## 테스트
+
+- 시나리오별 파일: `landing`(1), `explore`(2·3), `fitting`(4~7), `closet-shopping`(7·8·11), `register`(9), `mobile`(10), `a11y`(12).
+- 배경 제거 모델은 처음 한 번 IMG.LY CDN에서 받아 `e2e/.cache/`에 두고 다음부터 재사용합니다(git 제외).
 
 ## 데이터
 

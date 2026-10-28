@@ -60,7 +60,7 @@
 .rail {
   flex: none;
   width: 56px;
-  padding: var(--sp-20) 6px;
+  padding: var(--sp-20) var(--sp-4);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -164,7 +164,7 @@
 .tab {
   flex: none;
   height: var(--hit);
-  padding: 0 2px;
+  padding: 0 var(--sp-4);
   border: 0;
   background: transparent;
   color: var(--muted);

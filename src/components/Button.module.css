@@ -2,7 +2,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
+  gap: var(--sp-4);
   min-height: var(--hit);
   border: 0;
   text-decoration: none;
@@ -20,9 +20,18 @@
   font-size: var(--fs-15);
 }
 
+.inverse {
+  height: var(--button-h);
+  padding: 0 var(--sp-24);
+  border-radius: var(--r-button);
+  background: var(--bg);
+  color: var(--text);
+  font-size: var(--fs-15);
+}
+
 .pill {
   height: var(--hit);
-  padding: 0 18px;
+  padding: 0 var(--sp-16);
   border-radius: var(--r-search);
   background: var(--text);
   color: var(--on-dark);
